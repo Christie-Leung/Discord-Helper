@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home page</title>
+</head>
+<body>
+    <div class="box" data-tooltip="Welcome, to start, open discord in the browser or download it to your computer">
+
+    </div>
+
+    <!--<h1>Home Page</h1> -->
+    <!-- <p>Hello!</p> -->
+    <!-- <iframe src="http://www.discord.com" width = "100%" height = "560px"></iframe> -->
+</body>
+<style>
+body {
+    background-img: url(background.png);
+}
+ .box{
+ width:200px;
+ position: absolute;
+ top: 100px;
+ bottom: 50px;
+ height:200px;
+ background: red;
+ }
+.box::before,
+.box::after {
+  --scale: 0;
+  --arrow-size: 20px;
+  --tooltip-color: #333;
+
+  position: absolute;
+  top: -.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+}
+
+.box::before {
+  --translate-y: calc(-100% - var(--arrow-size));
+
+  content: attr(data-tooltip);
+  color: white;
+  padding: .5rem;
+  border-radius: .3rem;
+  text-align: center;
+  width: max-content;
+  max-width: 100%;
+  background: var(--tooltip-color);
+}
+
+.box:hover::before,
+.box:hover::after {
+  --scale: 1;
+}
+
+.box::after {
+  --translate-y: calc(-1 * var(--arrow-size));
+
+  content: '';
+  border: var(--arrow-size) solid transparent;
+  border-top-color: var(--tooltip-color);
+  transform-origin: top center;
+}
+
+
+
+</style>
+
+</html>
