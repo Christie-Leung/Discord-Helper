@@ -55,8 +55,7 @@ public class Help extends Command {
         }
         Emoji checkMark = EmojiManager.getForAlias("white_check_mark");
 
-        e.replySuccess("Sent list to your DMs " + checkMark.getUnicode());
-        e.replyInDm(eb.build());
+        e.reply(eb.build());
     }
 
     StringBuilder buildCommandString(List<Command> commands) {

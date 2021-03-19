@@ -99,15 +99,101 @@ public class StringDescriptions {
         return images;
     }
 
+    List<String> getBlock(int method) {
+        List<String> desc = new ArrayList<>();
+        if (method == 1) {
+            desc.add("Click on the **top left icon** to access your friend directory.");
+            desc.add("Find the person you would like to block");
+            desc.add("**Right click** on them, and **click on \"Block\"**. Then, you should be all set!");
+        } else {
+            desc.add("In a server environment, **find the person** you would like to block.");
+            desc.add("**Right click on the person** and a menu should pop up");
+            desc.add("In the menu that pops up, **click on \"Block\"** and you should be all set!");
+        }
+        return desc;
+    }
+
+    List<String> getBlockImages(int method) {
+        List<String> images = new ArrayList<>();
+        if (method == 1) {
+            images.add("https://cdn.discordapp.com/attachments/821824091261763609/822192307289325643/unknown.png");
+            images.add("https://cdn.discordapp.com/attachments/821824091261763609/822206507058855986/unknown.png");
+            images.add("https://cdn.discordapp.com/attachments/821824091261763609/822547077308612678/unknown.png");
+        } else {
+            images.add("https://cdn.discordapp.com/attachments/821824091261763609/821834436630151238/unknown.png");
+            images.add("https://cdn.discordapp.com/attachments/821824091261763609/822209766846627860/unknown.png");
+            images.add("https://cdn.discordapp.com/attachments/821824091261763609/822546509291061328/unknown.png");
+        }
+        return images;
+    }
+
+    List<String> getLang() {
+        List<String> desc = new ArrayList<>();
+        desc.add("Inside settings, find the **category called \"Langauges\"** and click on it");
+        desc.add("Find the language you would like to switch to and click on it. Then, you should be all set!");
+        return desc;
+    }
+
+    List<String> getLangImages() {
+        List<String> images = new ArrayList<>();
+        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822551533001638008/unknown.png");
+        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822551835931181056/unknown.png");
+        return images;
+    }
+
+    List<String> getAppearance() {
+        List<String> desc = new ArrayList<>();
+        desc.add("Inside settings, find the **category called \"Appearance\"** and click on it");
+        desc.add("You can choose to change the theme to dark or light and the display to cozy or compact. Anything you choose will be reflected in the big box at the top.");
+        desc.add("You can also change the size of the text and the spacing between by dragging the point across the bar. (Green is the default settings) **Note that these changes are reflected in the big box at the top too!");
+        desc.add("Make sure you are happy with the changes by double checking the screen at the top!");
+        return desc;
+    }
+
+    List<String> getAppearanceImages() {
+        List<String> images = new ArrayList<>();
+        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822552460220432414/unknown.png");
+        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822552729905397860/unknown.png");
+        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822553152804356106/unknown.png");
+        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822553764581081098/unknown.png");
+        return images;
+    }
+
+    List<String> getVoice() {
+        List<String> desc = new ArrayList<>();
+        desc.add("Inside settings, find the **category called \"Voice and Video\"** and click on it");
+        desc.add("Here you can change the **input** (where it is collecting your sound) and the **output** (where it is giving off sound).");
+        desc.add("You can also test to see if your **mic is working properly** by **clicking the \"Let's Check\"** button.");
+        desc.add("Here you can choose to have the mic be from detecting **voice activity** past a certain volume, or **push to talk** which requires you to push a button in order for sound to be recorded. \n\nIf you chose **voice activity**, there should be a bar at the bottom for you to **adjust the sensitivity**.");
+        desc.add("If you chose push to talk, please note that the full version will require discord to be downloaded. If you are in the browser, you would have to stay within the browser in order for this to work. \n\nOtherwise, you can set a keybind (which means that you would have to press this button to speak to the other person). You can also set a delay, which means that you would need to wait a bit after pressing the key to talk.");
+        desc.add("Here, you can test if your camera works and choose which one to use");
+        desc.add("Lastly, you can change these functions: \n**Echo Cancellation** - detects and prevents an echo \n**Noise Reduction** - in noisy areas, this would focus more on your talking and reduce background sounds \n**Automatic Gain Control** -- this adjusts your volume depending on your location and sound towards the mic (If you are further away and more quiet, it will boost your volume) \n\nYou can also **reset all your voice and video-related settings** at any time.");
+        return desc;
+    }
+
+    List<String> getVoiceImages() {
+        List<String> images = new ArrayList<>();
+        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822554161874337832/unknown.png");
+        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822555060227670076/unknown.png");
+        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822554977507213382/unknown.png");
+        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822555176392589342/unknown.png");
+        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822556370866798643/unknown.png");
+        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822559090998771732/unknown.png");
+        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822559342385299537/unknown.png");
+        return images;
+    }
+
 /*
     List<String> getAccept() {
         List<String> desc = new ArrayList<>();
         desc.add();
+        return desc;
     }
 
     List<String> getAcceptImages() {
         List<String> images = new ArrayList<>();
         images.add();
+        return images;
     }
 
  */

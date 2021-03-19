@@ -1,4 +1,5 @@
 import Commands.Guides.Friend;
+import Commands.Guides.Settings;
 import Commands.Help;
 import com.github.ygimenez.exception.InvalidHandlerException;
 import com.github.ygimenez.method.Pages;
@@ -28,7 +29,8 @@ public class BotApplication extends ListenerAdapter {
                 .addCommands(
                         new Help(waiter),
                         // Guides for new users
-                        new Friend()
+                        new Friend(),
+                        new Settings()
                 );
         builder.addEventListeners(client.build());
         JDA bot = builder.build();
