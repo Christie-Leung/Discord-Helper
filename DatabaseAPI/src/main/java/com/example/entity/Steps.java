@@ -1,18 +1,24 @@
-package entity;
+package com.example.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
+import java.util.UUID;
 
-
-@Table(name = "Tutorial1")
+@Entity
+@Table(name = "step")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(allowGetters = true, ignoreUnknown = true)
 public class Steps {
+    @javax.persistence.Id
+    @GeneratedValue
+    private UUID uuid;
 
     @JsonProperty(value = "step")
     private int step;
@@ -48,6 +54,4 @@ public class Steps {
     public void setInstruction(String instruction) {
         this.instruction = instruction;
     }
-
-
 }

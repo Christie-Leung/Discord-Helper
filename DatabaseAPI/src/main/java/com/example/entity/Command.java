@@ -1,18 +1,24 @@
-package entity;
+package com.example.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
+import java.util.UUID;
 
-
-@Table(name = "Tutorial2")
+@Entity
+@Table(name = "Command")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(allowGetters = true, ignoreUnknown = true)
 public class Command {
+    @javax.persistence.Id
+    @GeneratedValue
+    private UUID uuid;
 
     @JsonProperty(value = "system")
     private String system;
@@ -20,11 +26,16 @@ public class Command {
     @JsonProperty(value = "command")
     private String command;
 
+    @JsonProperty(value = "step")
+    private int stepNum;
+
     @JsonProperty(value = "instruction")
     private String instruction;
 
     @JsonProperty(value = "image")
     private String image;
+
+
 
     public String getSystem() {
         return system;
@@ -56,5 +67,13 @@ public class Command {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public int getStepNum() {
+        return stepNum;
+    }
+
+    public void setStepNum(int stepNum) {
+        this.stepNum = stepNum;
     }
 }

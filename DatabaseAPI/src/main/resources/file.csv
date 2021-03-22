@@ -1,0 +1,5 @@
+System,Command,Step,Instructions,Images
+Friend,Add,1,"Following the action shown below, **click on the person** you would like to friend",https://cdn.discordapp.com/attachments/821824091261763609/821834436630151238/unknown.png
+Friend,Add,2,"Hover over their profile picture, and you should see the words **\""View Profile\""** pop up. Click on this",https://cdn.discordapp.com/attachments/821824091261763609/822184852774191114/unknown.png
+Friend,Add,3,"Once you clicked in, you should see more information about the user. There should be a **\""Send a Friend Request\"" button at the top right**. Click on that to send a friend request!",https://cdn.discordapp.com/attachments/821824091261763609/822185203237257256/unknown.png
+Friend,Add,4,"If the button grays out and says \""Friend Request Sent\"", you are all set! \n\nFor information on how to **accept a friend request**, please type **!friends accept**",https://cdn.discordapp.com/attachments/821824091261763609/822185690313392138/unknown.png
