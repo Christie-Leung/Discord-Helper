@@ -4,31 +4,51 @@
     <title>Home page</title>
 </head>
 <body>
-    <div class="box" data-tooltip="Click to download discord to your computer">
+    <div class="box" data-tooltip="Click to download discord to your computer" Xdownload = {{DownloadedX}} > </div>
+    <div class="box1" data-tooltip="Click to open discord in browser" Xdownload = {{DownloadedX}} > </div>
+    <div class="box2" data-tooltip="Press to login" Xdownload = {{DownloadedX}} > </div>
 
-    </div>
-    <iframe src="https://www.discord.com"  onload="this.width=screen.width;this.height=screen.height;"/>
 
     <!--<h1>Home Page</h1> -->
     <!-- <p>Hello!</p> -->
     <!-- <iframe src="http://www.discord.com" width = "100%" height = "560px"></iframe> -->
 </body>
 <style>
+
 body {
-    background-image: url("background.png");
     background-repeat: no-repeat;
     background-size: 1342px 732px;
     background-attachment: fixed;
 }
- .box{
- width:230px;
+/* open in browser */
+ .box1{
+ width:316px;
  position: absolute;
- top: 520px;
- bottom: 50px;
- left: 375px;
- height:50px;
- background: transparent;
+ top: calc( 435* 1px);
+ left: calc(700 * 1px);
+ height:56px;
+ background: red;
  }
+ /* login */
+  .box2{
+ width:64px;
+ position: absolute;
+ top: calc(21 * 1px);
+ left: calc(1246 * 1px);
+ height:38px;
+ background: red;
+ }
+
+ .box{
+ width:253px;
+ position: absolute;
+ top: calc(435 * 1px);
+ left: calc(424 * 1px);
+ height:56px;
+ background: red;
+ }
+.box1::before,
+.box1::after,
 .box::before,
 .box::after {
   --scale: 0;
@@ -42,7 +62,20 @@ body {
   transition: 150ms transform;
   transform-origin: bottom center;
 }
+.box2::before,
+.box2::after {
+  --scale: 0;
+  --arrow-size: 10px;
+  --tooltip-color: #333;
 
+  position: absolute;
+  bottom: -.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y,0)) scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+}
+.box1::before,
 .box::before {
   --translate-y: calc(-100% - var(--arrow-size));
 
@@ -55,19 +88,47 @@ body {
   max-width: 100%;
   background: var(--tooltip-color);
 }
+.box2::before,
+.box2::before {
+  --translate-y: calc(100% + var(--arrow-size));
 
+  content: attr(data-tooltip);
+  color: white;
+  padding: .5rem;
+  border-radius: .3rem;
+  text-align: center;
+  width: max-content;
+  max-width: 100%;
+  background: var(--tooltip-color);
+}
+
+.box1:hover::before,
+.box1:hover::after,
 .box:hover::before,
 .box:hover::after {
   --scale: 1;
 }
+.box2:hover::before,
+.box2:hover::after {
+  --scale: 1;
+}
 
+.box1::after,
 .box::after {
   --translate-y: calc(-1 * var(--arrow-size));
 
   content: '';
   border: var(--arrow-size) solid transparent;
   border-top-color: var(--tooltip-color);
-  transform-origin: top center;
+  transform-origin: bottom center;
+}
+.box2::after {
+  --translate-y: calc(1 * var(--arrow-size));
+
+  content: '';
+  border: var(--arrow-size) solid transparent;
+  border-top-color: var(--tooltip-color);
+  transform-origin: bottom center;
 }
 
 
