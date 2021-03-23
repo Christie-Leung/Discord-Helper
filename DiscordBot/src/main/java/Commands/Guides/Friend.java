@@ -36,11 +36,15 @@ public class Friend extends GuidesCmd {
         eb.setTitle("The Friend System");
 
         if (args[0].contains("add")) {
+            str.getData("friend", "add");
+            /*
             eb.setDescription("In this guide, you will learn how to add a friend!");
             pages.add(new Page(PageType.EMBED, eb.build()));
             List<String> desc = str.getAddFriend();
             List<String> images = str.getAddImages();
             setEmbedMessage(e, eb, pages, desc, images, "Adding a Friend");
+
+             */
         } else if (args[0].contains("accept")) {
             eb.setDescription("In this guide, you will learn how to accept or ignore a friend request!");
             pages.add(new Page(PageType.EMBED, eb.build()));
