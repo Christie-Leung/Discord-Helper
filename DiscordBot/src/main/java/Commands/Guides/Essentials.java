@@ -11,7 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface Essentials {
-    static void setEmbedMessage(CommandEvent e, EmbedBuilder eb, ArrayList<Page> pages, List<String> desc, List<String> images, String title) {
+    static void setEmbedMessage(CommandEvent e, EmbedBuilder eb, ArrayList<Page> pages, String system, String command, String title) {
+        StringDescriptions str = new StringDescriptions();
+        List<String[]> data = str.getData(system, command);
+        List<String> desc = new ArrayList<>();
+        List<String> images = new ArrayList<>();
+        for (String[] descImages : data) {
+            desc.add(descImages[0]);
+            images.add(descImages[1]);
+        }
+
         for (int i = 0; i < desc.size(); i++) {
             eb.clear();
             String categoryName = "-- **Step " + (i + 1) + "** --";

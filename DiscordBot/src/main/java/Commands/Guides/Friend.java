@@ -20,7 +20,7 @@ import static Commands.Guides.Essentials.setEmbedMessage;
 
 public class Friend extends GuidesCmd {
     public Friend() {
-        this.name = "friends";
+        this.name = "friend";
         this.help = "Helps you with everything friend related";
         this.arguments = "add | accept | remove | message | block";
     }
@@ -29,57 +29,40 @@ public class Friend extends GuidesCmd {
     public void doCommand(CommandEvent e) {
         EmbedBuilder eb = new EmbedBuilder();
         ArrayList<Page> pages = new ArrayList<>();
-        StringDescriptions str = new StringDescriptions();
 
         String[] args = e.getArgs().toLowerCase().split("\\s+");
         eb.setImage("https://cdn.discordapp.com/attachments/821824091261763609/822182132477853707/unknown.png");
         eb.setTitle("The Friend System");
 
         if (args[0].contains("add")) {
-            str.getData("friend", "add");
-            /*
             eb.setDescription("In this guide, you will learn how to add a friend!");
             pages.add(new Page(PageType.EMBED, eb.build()));
-            List<String> desc = str.getAddFriend();
-            List<String> images = str.getAddImages();
-            setEmbedMessage(e, eb, pages, desc, images, "Adding a Friend");
-
-             */
+            setEmbedMessage(e, eb, pages, this.name, args[0], "Adding a Friend");
         } else if (args[0].contains("accept")) {
             eb.setDescription("In this guide, you will learn how to accept or ignore a friend request!");
             pages.add(new Page(PageType.EMBED, eb.build()));
-            List<String> desc = str.getAccept();
-            List<String> images = str.getAcceptImages();
-            setEmbedMessage(e, eb, pages, desc, images, "Accepting a Friend Request");
+            setEmbedMessage(e, eb, pages,this.name, args[0], "Accepting a Friend Request");
         } else if (args[0].contains("remove")) {
             eb.setDescription("In this guide, you will learn how to remove a friend!");
             pages.add(new Page(PageType.EMBED, eb.build()));
-            List<String> desc = str.getRemove();
-            List<String> images = str.getRemoveImages();
-            setEmbedMessage(e, eb, pages, desc, images, "Removing a Friend");
+            setEmbedMessage(e, eb, pages, this.name, args[0], "Removing a Friend");
         } else if (args[0].contains("message") || args[0].contains("msg")) {
             ThrowingBiConsumer<Member, Message> method1 = (member, action) -> {
                 eb.setDescription("In this guide, you will learn how to direct message a friend through the friends directory!");
                 pages.add(new Page(PageType.EMBED, eb.build()));
-                List<String> desc = str.getMessage(1);
-                List<String> images = str.getMessageImages(1);
-                setEmbedMessage(e, eb, pages, desc, images, "Messaging a Friend");
+                setEmbedMessage(e, eb, pages, this.name, "msg1", "Messaging a Friend");
             };
 
             ThrowingBiConsumer<Member, Message> method2 = (member, action) -> {
                 eb.setDescription("In this guide, you will learn how to direct message a friend in a server environment!");
                 pages.add(new Page(PageType.EMBED, eb.build()));
-                List<String> desc = str.getMessage(2);
-                List<String> images = str.getMessageImages(2);
-                setEmbedMessage(e, eb, pages, desc, images, "Messaging a Friend");
+                setEmbedMessage(e, eb, pages, this.name, "msg2", "Messaging a Friend");
             };
 
             ThrowingBiConsumer<Member, Message> method3 = (member, action) -> {
                 eb.setDescription("In this guide, you will learn how to direct message a friend using the friends page!");
                 pages.add(new Page(PageType.EMBED, eb.build()));
-                List<String> desc = str.getMessage(3);
-                List<String> images = str.getMessageImages(3);
-                setEmbedMessage(e, eb, pages, desc, images, "Messaging a Friend");
+                setEmbedMessage(e, eb, pages, this.name, "msg3", "Messaging a Friend");
             };
 
             Map<String, ThrowingBiConsumer<Member, Message>> functions = new LinkedHashMap<>();
@@ -94,17 +77,14 @@ public class Friend extends GuidesCmd {
             ThrowingBiConsumer<Member, Message> method1 = (member, action) -> {
                 eb.setDescription("In this guide, you will learn how to block a friend/user through the friends directory!");
                 pages.add(new Page(PageType.EMBED, eb.build()));
-                List<String> desc = str.getBlock(1);
-                List<String> images = str.getBlockImages(1);
-                setEmbedMessage(e, eb, pages, desc, images, "Blocking a Friend");
+                setEmbedMessage(e, eb, pages, this.name, "block1", "Blocking a Friend");
+
             };
 
             ThrowingBiConsumer<Member, Message> method2 = (member, action) -> {
                 eb.setDescription("In this guide, you will learn how to block a friend/user in a server environment!");
                 pages.add(new Page(PageType.EMBED, eb.build()));
-                List<String> desc = str.getBlock(2);
-                List<String> images = str.getBlockImages(2);
-                setEmbedMessage(e, eb, pages, desc, images, "Blocking a Friend");
+                setEmbedMessage(e, eb, pages, this.name, "block2", "Blocking a Friend");
             };
 
             Map<String, ThrowingBiConsumer<Member, Message>> functions = new LinkedHashMap<>();

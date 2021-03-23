@@ -14,11 +14,10 @@ import java.util.List;
 
 public class StringDescriptions {
 
-    void getData(String system, String command) {
-
+    List<String[]> getData(String system, String command) {
         URL url = null;
         try {
-            url = new URL("localhost:8080/api/command/" + system + "/" + command);
+            url = new URL("http://localhost:8080/api/command/" + system + "/" + command);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -33,15 +32,14 @@ public class StringDescriptions {
         } catch (ProtocolException e) {
             e.printStackTrace();
         }
-        StringBuffer content = new StringBuffer();
+        String content = "";
         try {
             if (con.getResponseCode() == 200) {
                 BufferedReader in = new BufferedReader(
                         new InputStreamReader(con.getInputStream()));
                 String inputLine;
                 while ((inputLine = in.readLine()) != null) {
-                    content.append(inputLine);
-                    System.out.println(inputLine);
+                    content = inputLine;
                 }
                 in.close();
                 con.disconnect();
@@ -49,7 +47,27 @@ public class StringDescriptions {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-
+        List<String[]> data = new ArrayList<>();
+        boolean newArray = false;
+        String[] temp = new String[2];
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < content.length()-1; i++) {
+            if (newArray) {
+                stringBuilder.append(content.charAt(i));
+            }
+            if (content.charAt(i) == '[') {
+                newArray = true;
+            } else if (content.charAt(i) == ']') {
+                newArray = false;
+                int index = stringBuilder.indexOf("\",\"https");
+                temp[0] = stringBuilder.substring(2, index);
+                temp[1] = stringBuilder.substring(index+3, stringBuilder.length()-2);
+                data.add(temp);
+                temp = new String[2];
+                stringBuilder.delete(0, stringBuilder.length()-1);
+            }
+        }
+        return data;
     }
 
     List<String> getAddFriend() {
