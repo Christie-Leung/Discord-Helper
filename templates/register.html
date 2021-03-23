@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home page</title>
+</head>
+<body>
+    <div class="box" data-tooltip="Enter your email address to use to sign up for your account here"> </div>
+    <div class="box1" data-tooltip="type in a unique username for your account here"> </div>
+    <div class="box2" data-tooltip="Enter a unique password to use for your account (we recommend a password with special charecters, at least 8 charecters, and a mix of upper and lowercase letters)"> </div>
+    <div class="box3" data-tooltip="Click and Select your month of birth using the dropdown bar"> </div>
+    <div class="box4" data-tooltip="Click and Select your day of birth using the dropdown bar"> </div>
+    <div class="box5" data-tooltip="Click and Select your birth year using the dropdown bar"> </div>
+    <div class="box6" data-tooltip="Press to Continue (Please read terms and conditions found here: https://discord.com/terms and privacy policy found here:https://discord.com/privacy first)"> </div>
+
+
+    <!--<h1>Home Page</h1> -->
+    <!-- <p>Hello!</p> -->
+    <!-- <iframe src="http://www.discord.com" width = "100%" height = "560px"></iframe> -->
+</body>
+<style>
+
+body {
+    background-repeat: no-repeat;
+    background-size: 1342px 732px;
+    background-attachment: fixed;
+}
+ .box{
+ width:416px;
+ position: absolute;
+ top: calc(218 * 1px);
+ left: calc(512 * 1px);
+ height:40px;
+ background: red;
+ }
+/* Username */
+ .box1{
+ width:416px;
+ position: absolute;
+ top: calc( 278* 1px);
+ left: calc(512 * 1px);
+ height:64px;
+ background: red;
+ }
+ /* Password */
+  .box2{
+ width:416px;
+ position: absolute;
+ top: calc(362 * 1px);
+ left: calc(512 * 1px);
+ height:64px;
+ background: red;
+ }
+  /* Month */
+ .box3{
+ width:154px;
+ position: absolute;
+ top: calc(470 * 1px);
+ left: calc(512 * 1px);
+ height:41px;
+ background: red;
+ }
+   /* Day */
+ .box4{
+ width:100px;
+ position: absolute;
+ top: calc(470 * 1px);
+ left: calc(687 * 1px);
+ height:41px;
+ background: red;
+ }
+ /* Day */
+  .box5{
+ width:120px;
+ position: absolute;
+ top: calc(470 * 1px);
+ left: calc(808 * 1px);
+ height:41px;
+ background: red;
+ }
+ /* Continue */
+   .box6{
+ width:416px;
+ position: absolute;
+ top: calc(535 * 1px);
+ left: calc(512 * 1px);
+ height:44px;
+ background: red;
+ }
+.box6::before,
+.box6::after,
+.box5::before,
+.box5::after,
+.box4::before,
+.box4::after,
+.box3::before,
+.box3::after,
+.box2::before,
+.box2::after,
+.box1::before,
+.box1::after,
+.box::before,
+.box::after {
+  --scale: 0;
+  --arrow-size: 20px;
+  --tooltip-color: #333;
+
+  position: absolute;
+  top: -.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+}
+.box6::before,
+.box5::before,
+.box4::before,
+.box3::before,
+.box2::before,
+.box1::before,
+.box::before {
+  --translate-y: calc(-100% - var(--arrow-size));
+
+  content: attr(data-tooltip);
+  color: white;
+  padding: .5rem;
+  border-radius: .3rem;
+  text-align: center;
+  width: max-content;
+  max-width: 100%;
+  background: var(--tooltip-color);
+}
+.box6:hover::before,
+.box6:hover::after,
+.box5:hover::before,
+.box5:hover::after,
+.box4:hover::before,
+.box4:hover::after,
+.box3:hover::before,
+.box3:hover::after,
+.box2:hover::before,
+.box2:hover::after,
+.box1:hover::before,
+.box1:hover::after,
+.box:hover::before,
+.box:hover::after {
+  --scale: 1;
+}
+.box6::after,
+.box5::after,
+.box4::after,
+.box3::after,
+.box2::after,
+.box1::after,
+.box::after {
+  --translate-y: calc(-1 * var(--arrow-size));
+
+  content: '';
+  border: var(--arrow-size) solid transparent;
+  border-top-color: var(--tooltip-color);
+  transform-origin: bottom center;
+}
+
+
+
+
+</style>
+
+</html>

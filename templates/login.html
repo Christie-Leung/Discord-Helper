@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home page</title>
+</head>
+<body>
+    <div class="box" data-tooltip="If you already have an account, type in your username here"> </div>
+    <div class="box1" data-tooltip="If you already have an account, type in your password here"> </div>
+    <div class="box2" data-tooltip="If you have forgotten your password, Click here and follow this link to find a detailed guide on how to reset your password"> </div>
+    <div class="box3" data-tooltip="Click Here to Login"> </div>
+    <div class="box4" data-tooltip="Click Here to begin registering for an account if you currently do not have one or want to create a new account"> </div>
+    <div class="box5" data-tooltip="Download the Discord Mobile app on a mobile device and scan this QR code to login. To see more instructions click here"> </div>
+
+
+
+
+    <!--<h1>Home Page</h1> -->
+    <!-- <p>Hello!</p> -->
+    <!-- <iframe src="http://www.discord.com" width = "100%" height = "560px"></iframe> -->
+</body>
+<style>
+
+body {
+    background-repeat: no-repeat;
+    background-size: 1342px 732px;
+    background-attachment: fixed;
+}
+ .box{
+ width:412px;
+ position: absolute;
+ top: calc(324 * 1px);
+ left: calc(361 * 1px);
+ height:41px;
+ background: red;
+ }
+/* Password */
+ .box1{
+ width:414px;
+ position: absolute;
+ top: calc( 409* 1px);
+ left: calc(360 * 1px);
+ height:41px;
+ background: red;
+ }
+ /* Forgot Password */
+  .box2{
+ width:136px;
+ position: absolute;
+ top: calc(456 * 1px);
+ left: calc(362 * 1px);
+ height:17px;
+ background: red;
+ }
+  /* Login */
+ .box3{
+ width:414px;
+ position: absolute;
+ top: calc(494 * 1px);
+ left: calc(360 * 1px);
+ height:45px;
+ background: red;
+ }
+   /* Register */
+ .box4{
+ width:414px;
+ position: absolute;
+ top: calc(546 * 1px);
+ left: calc(360 * 1px);
+ height:19px;
+ background: red;
+ }
+  .box5{
+ width:240px;
+ position: absolute;
+ top: calc(221 * 1px);
+ left: calc(840 * 1px);
+ height:345px;
+ background: red;
+ }
+.box5::before,
+.box5::after,
+.box4::before,
+.box4::after,
+.box3::before,
+.box3::after,
+.box2::before,
+.box2::after,
+.box1::before,
+.box1::after,
+.box::before,
+.box::after {
+  --scale: 0;
+  --arrow-size: 20px;
+  --tooltip-color: #333;
+
+  position: absolute;
+  top: -.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+}
+.box5::before,
+.box4::before,
+.box3::before,
+.box2::before,
+.box1::before,
+.box::before {
+  --translate-y: calc(-100% - var(--arrow-size));
+
+  content: attr(data-tooltip);
+  color: white;
+  padding: .5rem;
+  border-radius: .3rem;
+  text-align: center;
+  width: max-content;
+  max-width: 100%;
+  background: var(--tooltip-color);
+}
+.box5:hover::before,
+.box5:hover::after,
+.box4:hover::before,
+.box4:hover::after,
+.box3:hover::before,
+.box3:hover::after,
+.box2:hover::before,
+.box2:hover::after,
+.box1:hover::before,
+.box1:hover::after,
+.box:hover::before,
+.box:hover::after {
+  --scale: 1;
+}
+.box5::after,
+.box4::after,
+.box3::after,
+.box2::after,
+.box1::after,
+.box::after {
+  --translate-y: calc(-1 * var(--arrow-size));
+
+  content: '';
+  border: var(--arrow-size) solid transparent;
+  border-top-color: var(--tooltip-color);
+  transform-origin: bottom center;
+}
+
+
+
+
+</style>
+
+</html>
