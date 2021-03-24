@@ -6,25 +6,125 @@
 <body>
     <div class="box" data-tooltip="Copy and paste this link in the text bar to join our guided server: https://discord.gg/WMQfEWNU"> </div>
 
+   <div class ="text">
+        <p style="font-family:helvetica" style="font-size:11px"> Copy this url(https://discord.gg/WMQfEWNU)<br>and paste the url into the area outlined by the red box</p>
+    </div>
+    <div class ="text2">
+        <p style="font-family:helvetica" style="font-size:11px"> After pasting the link in the box,<br>press the join button as indicated by the red arrow.</p>
+    </div>
+    <a href="server.html">
+        <div class="next"></div>
+    </a>
+    <div id="arrowAnim">
+        <div class="arrowSliding">
+        <div class="arrow"></div>
+    </div>
+    <div id="arrowAnim1">
+        <div class="arrowSliding1">
+        <div class="arrow1"></div>
+    </div>
 
-    <!--<h1>Home Page</h1> -->
-    <!-- <p>Hello!</p> -->
-    <!-- <iframe src="http://www.discord.com" width = "100%" height = "560px"></iframe> -->
 </body>
 <style>
+.next {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-225deg);
+  position: absolute;
+  top: 50%;
+  left: 90%;
+
+}
+.text{
+    border-radius: .3rem;
+    text-align: center;
+    position: absolute;
+    top: 350px;
+    left: 100px;
+    background-color: white;
+    border-radius: 20px;
+    height: 50px;
+    color: #333;
+    padding: .7rem;
+    width: max-content;
+    height: max-content;
+    }
+.text2{
+    border-radius: .3rem;
+    text-align: center;
+    position: absolute;
+    top: 550px;
+    left: 400px;
+    background-color: #333;
+    border-radius: 20px;
+    height: 50px;
+    color: white;
+    padding: .7rem;
+    width: max-content;
+    height: max-content;
+    }
 
 body {
-    background-repeat: no-repeat;
-    background-size: 1342px 732px;
-    background-attachment: fixed;
+    background-image: url("server.png");
+    height: 100vh;
+    background-size: cover;
+    background-position;
 }
+#arrowAnim {
+  position:absolute;
+  top: 390px;
+  left:550px;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#arrowAnim1 {
+  position:absolute;
+  top: 200px;
+  left:300px;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow1,
+.arrow {
+  width: 10px;
+  height: 10px;
+  border: 10px solid;
+  border-color: red transparent transparent red;
+  transform: rotate(-225deg);
+}
+
+.arrowSliding1,
+.arrowSliding {
+  position: absolute;
+  -webkit-animation: slide 2s linear infinite;
+}
+
+
+
+@-webkit-keyframes slide {
+    0% { opacity:0; transform: translateX(-108px); }
+   20% { opacity:1; transform: translateX(-95px); }
+   80% { opacity:1; transform: translateX(+95px); }
+  100% { opacity:0; transform: translateX(+108px); }
+}
+
  .box{
  width:416px;
  position: absolute;
- top: calc(300 * 1px);
- left: calc(570 * 1px);
+ top: calc(365 * 1px);
+ left: calc(665 * 1px);
  height:44px;
- background: red;
+ background: transparent;
+ outline: 5px solid red;
  }
 
 .box::before,
