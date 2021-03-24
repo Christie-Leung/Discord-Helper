@@ -3,12 +3,10 @@ package com.example.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.Type;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -30,6 +28,7 @@ public class Command {
     private int stepNum;
 
     @JsonProperty(value = "instruction")
+    @Column(columnDefinition = "LONGTEXT")
     private String instruction;
 
     @JsonProperty(value = "image")

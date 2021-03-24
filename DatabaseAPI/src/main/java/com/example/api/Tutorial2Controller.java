@@ -50,14 +50,16 @@ public class Tutorial2Controller {
 
     @PostMapping("/upload")
     public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) {
-        Path filepath = Paths.get("DatabaseAPI/src/main/resources", file.getOriginalFilename());
+        String path = System.getProperty("user.dir");
+        System.out.println(path);
+        Path filepath = Paths.get(path + "/resources", file.getOriginalFilename());
 
         try (OutputStream os = Files.newOutputStream(filepath)) {
             os.write(file.getBytes());
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-        try (CSVReader reader = new CSVReader(new FileReader("DatabaseAPI/src/main/resources/file.csv"))) {
+        try (CSVReader reader = new CSVReader(new FileReader(path + "/resources/file.csv"))) {
             List<String[]> data = reader.readAll();
             for (int i = 1, dataSize = data.size(); i < dataSize; i++) {
                 String[] d = data.get(i);
