@@ -1,7 +1,5 @@
 package Commands.Guides;
 
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -70,24 +68,7 @@ public class StringDescriptions {
         return data;
     }
 
-    List<String> getAddFriend() {
-        List<String> desc = new ArrayList<>();
-        desc.add("Following the action shown below, **click on the person** you would like to friend");
-        desc.add("Hover over their profile picture, and you should see the words **\"View Profile\"** pop up. Click on this");
-        desc.add("Once you clicked in, you should see more information about the user. There should be a **\"Send a Friend Request\" button at the top right**. Click on that to send a friend request!");
-        desc.add("If the button grays out and says \"Friend Request Sent\", you are all set! \n\nFor information on how to **accept a friend request**, please type **!friends accept**");
-        return desc;
-    }
-
-    List<String> getAddImages() {
-        List<String> images = new ArrayList<>();
-        images.add("https://cdn.discordapp.com/attachments/821824091261763609/821834436630151238/unknown.png");
-        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822184852774191114/unknown.png");
-        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822185203237257256/unknown.png");
-        images.add("https://cdn.discordapp.com/attachments/821824091261763609/822185690313392138/unknown.png");
-        return images;
-    }
-
+/*
     List<String> getAccept() {
         List<String> desc = new ArrayList<>();
         desc.add("If you have received a friend request, you should see the **top left icon with a notification**, please click on this.");
@@ -248,7 +229,6 @@ public class StringDescriptions {
         return images;
     }
 
-/*
     List<String> getAccept() {
         List<String> desc = new ArrayList<>();
         desc.add();

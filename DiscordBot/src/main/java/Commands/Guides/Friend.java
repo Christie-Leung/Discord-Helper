@@ -95,7 +95,7 @@ public class Friend extends GuidesCmd {
             eb.setDescription("There are 2 ways to block a friend/user. **Please note that blocking a friend will automatically remove them as a friend.**\nPlease react with the method you would like to learn. \n1️⃣ - Within the Friend Directory \n2️⃣ - In a Server Environment");
             e.getChannel().sendMessage(eb.build()).queue(success -> Pages.buttonize(success, functions, true));
         } else {
-            e.replyError("Please try again with the proper parameters: \nFor example: `!friends add` or `!friends message` \n\n Here are all parameters: add, accept, remove, message, block");
+            e.replyError("Please try again with the proper parameters: \nFor example: `!friends add` or `!friends message` \n\nHere are all parameters: add, accept, remove, message, block");
         }
     }
 }

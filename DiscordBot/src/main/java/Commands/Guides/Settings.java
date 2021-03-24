@@ -41,7 +41,7 @@ public class Settings extends GuidesCmd {
             pages.add(new Page(PageType.EMBED, eb.build()));
             setEmbedMessage(e, eb, pages, this.name, args[0], "Adjusting Voice and Video");
         } else {
-            e.replyError("Please try again with the proper parameters: \nFor example: `!settings language` or `!settings sound` \n\n Here are all parameters: language, appearance, and sound.");
+            e.replyError("Please try again with the proper parameters: \nFor example: `!settings language` or `!settings sound` \n\nHere are all parameters: language, appearance, and sound.");
         }
 
     }
