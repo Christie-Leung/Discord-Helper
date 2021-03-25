@@ -40,7 +40,6 @@ if __name__ == "__main__":
                 Y = list[1][1]
                 return X,Y
 
-
     driver = webdriver.Safari()
     driver.get("http://discord.com")
     driver.maximize_window()
@@ -98,8 +97,12 @@ if __name__ == "__main__":
     print(BUTTONOFLOGIN.getW())
     print(BUTTONOFLOGIN.getH())
 
-    engine = requests.get('https://localhost:8080/api/steps/1/download')
-    print(engine)
+    stepNum = 1
+    buttonName = "download"
+    request = requests.get(f'http://192.168.1.79:8080/api/step/{stepNum}/{buttonName}')
+    print(request.text)
+
+
 
 
 
