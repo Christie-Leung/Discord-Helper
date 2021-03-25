@@ -19,6 +19,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.example.api.Tutorial1Controller.extractFile;
+
 @RequestMapping("/api/command")
 @RestController
 public class Tutorial2Controller {
@@ -51,14 +53,7 @@ public class Tutorial2Controller {
     @PostMapping("/upload")
     public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) {
         String path = System.getProperty("user.dir");
-        System.out.println(path);
-        Path filepath = Paths.get(path + "/resources", file.getOriginalFilename());
-
-        try (OutputStream os = Files.newOutputStream(filepath)) {
-            os.write(file.getBytes());
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
+        extractFile(file, path);
         try (CSVReader reader = new CSVReader(new FileReader(path + "/resources/file.csv"))) {
             List<String[]> data = reader.readAll();
             for (int i = 1, dataSize = data.size(); i < dataSize; i++) {
