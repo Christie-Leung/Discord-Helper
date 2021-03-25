@@ -1,5 +1,8 @@
 from selenium import webdriver
 import numpy
+import requests
+
+
 # download selenium and chrome driver
 
 
@@ -95,23 +98,11 @@ if __name__ == "__main__":
     print(BUTTONOFLOGIN.getW())
     print(BUTTONOFLOGIN.getH())
 
-    #set username
-    """
-    username = driver.find_element_by_xpath('//*[@id="app-mount"]/div/div/div[1]/div[2]/div/div[2]/form')
-    usernamebox = driver.find_element_by_xpath('// *[ @ id = "app-mount"] / div / div / div[1] / div[2] / div / div[2] / form / input')
-    labelUsername = usernamebox.text
-    positionUsername = username.location
-    coorUsername = list(positionUsername.items())
-    XUse, YUse = getPosition(coorUsername)
-    dimensionsUsername = username.size
-    sizeUsername = list(dimensionsUsername.items())
-    WidthUse, HeightUse = getPosition(sizeUsername)
-    BUTTONOFUSERNAME = Button(XUse, YUse, labelUsername, WidthUse, HeightUse)
-    print(BUTTONOFUSERNAME.getLabel())
-    print(BUTTONOFUSERNAME.getX())
-    print(BUTTONOFUSERNAME.getY())
-    print(BUTTONOFUSERNAME.getW())
-    print(BUTTONOFUSERNAME.getH())
-    """
+    engine = requests.get('https://localhost:8080/api/steps/1/download')
+    print(engine)
+
+
+
+
 
 
