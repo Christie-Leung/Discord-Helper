@@ -33,7 +33,7 @@ public class Tutorial1Controller {
     @GetMapping("/{step}/{button}")
     public ResponseEntity<?> getInstruction(@PathVariable("step") int step, @PathVariable("button") String button) {
         for (Steps steps : repo.findAll()) {
-            if (steps.getStep() == step && button.contains(steps.getButtonName())) {
+            if (steps.getStep() == step && button.toLowerCase().contains(steps.getButtonName().toLowerCase())) {
                 return ResponseEntity.ok(steps.getInstruction());
             }
         }
@@ -42,14 +42,9 @@ public class Tutorial1Controller {
 
     @PostMapping("/upload")
     public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) {
-        Path filepath = Paths.get("DatabaseAPI/src/main/resources", file.getOriginalFilename());
-
-        try (OutputStream os = Files.newOutputStream(filepath)) {
-            os.write(file.getBytes());
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-        try (CSVReader reader = new CSVReader(new FileReader("DatabaseAPI/src/main/resources/file.csv"))) {
+        String path = System.getProperty("user.dir");
+        extractFile(file, path);
+        try (CSVReader reader = new CSVReader(new FileReader(path + "/resources/file.csv"))) {
             List<String[]> data = reader.readAll();
             for (int i = 1, dataSize = data.size(); i < dataSize; i++) {
                 String[] d = data.get(i);
@@ -64,5 +59,15 @@ public class Tutorial1Controller {
             return ResponseEntity.badRequest().build();
         }
         return ResponseEntity.ok(repo.findAll());
+    }
+
+    static void extractFile(@RequestParam("file") MultipartFile file, String path) {
+        Path filepath = Paths.get(path + "/resources", file.getOriginalFilename());
+
+        try (OutputStream os = Files.newOutputStream(filepath)) {
+            os.write(file.getBytes());
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 }
