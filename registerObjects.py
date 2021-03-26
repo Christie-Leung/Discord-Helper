@@ -1,6 +1,7 @@
 from selenium import webdriver
-import numpy
 from objects import Button
+import numpy
+
 
 
 driver = webdriver.Safari()

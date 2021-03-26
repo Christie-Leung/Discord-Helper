@@ -13,6 +13,7 @@ class Button:
         self.LABEL = label
         self.W = W
         self.H = H
+        self.TEXT = none
 
     def getX(self):
         return self.X
@@ -22,16 +23,29 @@ class Button:
     def getLabel(self):
         return self.LABEL
 
+    def setText(self,text):
+        self.TEXT = text
+
+
+
     def getW(self):
         return self.W
 
     def getH(self):
         return self.H
 
+    def getText(BUTTONAME, STEPNUM):
+        if self.LABEL == BUTTONNAME:
+            request = requests.get(f'http://192.168.1.79:8080/api/step/{STEPNUM}/{BUTTONNAME}')
+            self.TEXT = request.text
+
+
+
 
 
 
 if __name__ == "__main__":
+
     def getPosition(list):
         X = 0
         Y = 0
@@ -40,67 +54,51 @@ if __name__ == "__main__":
                 Y = list[1][1]
                 return X,Y
 
+
+
     driver = webdriver.Safari()
     driver.get("http://discord.com")
     driver.maximize_window()
 
-    # I am using Chrome Developer Tool to get the Xpath, you might want to use your own code.
-    buttonDownload = driver.find_element_by_xpath('//*[@id="app-mount"]/div/div/div[1]/div[2]/div/div[2]/a')
-    elementDownload = driver.find_element_by_xpath('//*[@id="app-mount"]/div/div/div[1]/div[2]/div/div[2]/a')
-    labelDownload = elementDownload.text
-    position = buttonDownload.location
-    dimensions = buttonDownload.size
-    coor = list(position.items())
-    size = list(dimensions.items())
-    Xdown,Ydown =getPosition(coor)
-    Width, Height = getPosition(size)
-    BUTTONDownloaded = Button(Xdown, Ydown, labelDownload, Width, Height)
-    print(BUTTONDownloaded.getLabel())
-    print(BUTTONDownloaded.getX())
-    print(BUTTONDownloaded.getY())
-    print(BUTTONDownloaded.getW())
-    print(BUTTONDownloaded.getH())
+
+    def getInformation(xpath):
+        object = driver.find_element_by_xpath(xpath)
+        objectLabel = object.text
+        objectPosition = object.location
+        coorofObject = list(objectPosition.items())
+        X, Y = getPosition(coorofObject)
+        objectDimension = object.size
+        sizeofObject = list(objectDimension.items())
+        W, H = getPosition(sizeofObject)
+        OBJECT = Button(X, Y, objectLabel, W, H)
+        print(OBJECT.getLabel())
+        print(OBJECT.getX())
+        print(OBJECT.getY())
+        print(OBJECT.getW())
+        print(OBJECT.getH())
+        return OBJECT
 
 
 
-    #button open discord in your browser
-    buttonBrowser = driver.find_element_by_xpath('//*[@id="app-mount"]/div/div/div[1]/div[2]/div/div[2]/button')
-    elementBrowser =  driver.find_element_by_xpath('//*[@id="app-mount"]/div/div/div[1]/div[2]/div/div[2]/button')
-    labelBrowser = elementBrowser.text
-    positionBrowser = buttonBrowser.location
-    coorBrowser = list(positionBrowser.items())
-    dimensionsBrowser = buttonBrowser.size
-    sizeBrowser = list(dimensionsBrowser.items())
-    WidthBrow, HeightBrow = getPosition(sizeBrowser)
-    Xbrow, Ybrow = getPosition(coorBrowser)
-    BUTTONOFBROWSER = Button(Xbrow, Ybrow, labelBrowser, WidthBrow, HeightBrow)
-    print(BUTTONOFBROWSER.getLabel())
-    print(BUTTONOFBROWSER.getX())
-    print(BUTTONOFBROWSER.getY())
-    print(BUTTONOFBROWSER.getW())
-    print(BUTTONOFBROWSER.getH())
 
-    #login button
-    buttonLogin = driver.find_element_by_xpath('//*[@id="app-mount"]/div/div/div[1]/div[1]/header[2]/nav/div[2]/a')
-    elementLogin = driver.find_element_by_xpath('//*[@id="app-mount"]/div/div/div[1]/div[1]/header[2]/nav/div[2]/a')
-    labelLogin = elementLogin.text
-    positionLogin = buttonLogin.location
-    coorLogin = list(positionLogin.items())
-    Xlog, Ylog = getPosition(coorLogin)
-    dimensionsLogin = buttonLogin.size
-    sizeLogin = list(dimensionsLogin.items())
-    WidthLog, HeightLog = getPosition(sizeLogin)
-    BUTTONOFLOGIN = Button(Xlog, Ylog, labelLogin, WidthLog, HeightLog)
-    print(BUTTONOFLOGIN.getLabel())
-    print(BUTTONOFLOGIN.getX())
-    print(BUTTONOFLOGIN.getY())
-    print(BUTTONOFLOGIN.getW())
-    print(BUTTONOFLOGIN.getH())
 
+
+
+
+
+
+    DOWNLOADBUTTON = getInformation('//*[@id="app-mount"]/div/div/div[1]/div[2]/div/div[2]/a')
+    BROWSERBUTTON = getInformation('//*[@id="app-mount"]/div/div/div[1]/div[2]/div/div[2]/button')
+    LOGINBUTTON = getInformation('//*[@id="app-mount"]/div/div/div[1]/div[1]/header[2]/nav/div[2]/a')
+
+    """
     stepNum = 1
     buttonName = "download"
     request = requests.get(f'http://192.168.1.79:8080/api/step/{stepNum}/{buttonName}')
     print(request.text)
+    """
+
+
 
 
 
