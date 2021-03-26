@@ -1,0 +1,25 @@
+Step Number,Button/Text Bar,Instructions
+1,Download for Mac,Click to download the discord application to your computer
+1,Open Discord in your browser,Click to directly open discord in browser if you don't want to download the application
+1,Login,Click to directly login to existing account
+2,Textbar for user to enter a user name,Please input unique username that you would like to use for your discord account
+2,Date of Birth,Input your date of birth here
+2,Month,Input the month you were born
+2,Day,Input the day you were born
+2,Year,Input the year you were born
+3,Join a Server,Click the link to join the personalized server with further instructions on how to use discord
+3,Invite Link,input the url of the server (paste here)
+4,Claim the account-email,input you email address to use so you can easily access your account again
+2,Password,input a unique password to use for your account
+1,Get desktop app,Press to download the discord application to your computer
+2,Confirm your account,Please sign into the email you inputted and verify your account
+2,Email or Phone Number,"If you already have an account, type your username here"
+2,Password,"If you already have an account, type your password here"
+2,Forgot your password?,"If you have forgotten your password, click here to learn how to reset your password"
+2,Login,Click Here to Login
+2,Need an account?Register,Click Here to begin registering for an account if you currently do not have one or want to create a new account
+2,Log in with QR CodeScan this with the Discord mobile app to log in instantly.,Download the Discord Mobile app on a mobile device and scan this QR code to login
+2,Email,Enter an email to use for your discord account
+2,Username,Type in a unique username for your account here
+2,Password,"Enter a unique password to use for your account (we recommend a password with special charecters, at least 8 charecters, and a mix of upper and lowercase letters)"
+2,Continue,"Once you have filled in all of the other areas highlighted by the red boxes, press 'continue' (Please read terms and conditions found here: https://discord.com/terms and privacy policy found here:https://discord.com/privacy first)"
