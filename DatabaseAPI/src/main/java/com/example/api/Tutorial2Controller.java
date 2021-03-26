@@ -32,9 +32,17 @@ public class Tutorial2Controller {
         this.repo = repo;
     }
 
+    /**
+     * Gets the instructions and images for each command in a system
+     * @param sys overarching commands (Ex. settings / friends)
+     * @param para the parameter of the command
+     * @return instructions and images
+     */
     @GetMapping("/{system}/{command}")
     public ResponseEntity<?> getInstruction(@PathVariable("system") String sys, @PathVariable("command") String para) {
         Map<Integer, String[]> info = new HashMap<>();
+        String path = System.getProperty("user.dir");
+        if (convertToCommand(path)) return ResponseEntity.badRequest().build();
         for (Command command : repo.findAll()) {
             if (command.getSystem().toLowerCase().contains(sys.toLowerCase()) && command.getCommand().toLowerCase().contains(para.toLowerCase())) {
                 String[] step = new String[2];
@@ -50,11 +58,13 @@ public class Tutorial2Controller {
         }
     }
 
-    @PostMapping("/upload")
-    public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) {
-        String path = System.getProperty("user.dir");
-        extractFile(file, path);
-        try (CSVReader reader = new CSVReader(new FileReader(path + "/resources/file.csv"))) {
+    /**
+     * convert data into commands to be added to repo
+     * @param path path to current running program
+     * @return boolean of whether it failed to read file
+     */
+    private boolean convertToCommand(String path) {
+        try (CSVReader reader = new CSVReader(new FileReader(path + "/resources/command.csv"))) {
             List<String[]> data = reader.readAll();
             for (int i = 1, dataSize = data.size(); i < dataSize; i++) {
                 String[] d = data.get(i);
@@ -68,8 +78,21 @@ public class Tutorial2Controller {
             }
         } catch (IOException | CsvException e) {
             e.printStackTrace();
-            return ResponseEntity.badRequest().build();
+            return true;
         }
+        return false;
+    }
+
+    /**
+     * In case the files need to be updated, the upload command allows them to redo the data
+     * @param file file given to be uploaded/added to repo
+     * @return all data that got added into repo
+     */
+    @PostMapping("/upload")
+    public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) {
+        String path = System.getProperty("user.dir");
+        extractFile(file, path);
+        if (convertToCommand(path)) return ResponseEntity.badRequest().build();
         return ResponseEntity.ok(repo.findAll());
     }
 }

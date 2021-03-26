@@ -11,32 +11,36 @@ import java.util.List;
 
 import static Commands.Guides.Essentials.setEmbedMessage;
 
+// inherits from GuidesCmd class
 public class Settings extends GuidesCmd {
 
+    // Sets essential settings of command (name, help message, parameters)
     public Settings() {
         this.name = "settings";
         this.help = "Shows different essential settings and how to use them";
         this.arguments = "language | appearance | sound";
     }
 
+
     @Override
     public void doCommand(CommandEvent e) {
         EmbedBuilder eb = new EmbedBuilder();
         ArrayList<Page> pages = new ArrayList<>();
 
+        // First page of embed message
         String[] args = e.getArgs().toLowerCase().split("\\s+");
         eb.setImage("https://cdn.discordapp.com/attachments/821824091261763609/822550834050105354/unknown.png");
         eb.setTitle("Discord Settings");
 
-        if (args[0].contains("language")) {
+        if (args[0].contains("language")) { // Language guides
             eb.setDescription("In this guide, you will learn how to change the language!");
             pages.add(new Page(PageType.EMBED, eb.build()));
             setEmbedMessage(e, eb, pages, this.name, args[0], "Changing Languages");
-        } else if (args[0].contains("appearance")) {
+        } else if (args[0].contains("appearance")) { // Appearance guides
             eb.setDescription("In this guide, you will learn how to change the appearance of your window!");
             pages.add(new Page(PageType.EMBED, eb.build()));
             setEmbedMessage(e, eb, pages, this.name, args[0], "Changing the Appearance");
-        } else if (args[0].contains("sound")) {
+        } else if (args[0].contains("sound")) { // Voice and Video guides
             eb.setDescription("In this guide, you will learn how to adjust your voice and video settings!");
             pages.add(new Page(PageType.EMBED, eb.build()));
             setEmbedMessage(e, eb, pages, this.name, args[0], "Adjusting Voice and Video");

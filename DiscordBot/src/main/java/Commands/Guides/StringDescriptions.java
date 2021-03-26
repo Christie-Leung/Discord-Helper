@@ -12,6 +12,12 @@ import java.util.List;
 
 public class StringDescriptions {
 
+    /**
+     * Accesses the API to get the command data
+     * @param system overarching command
+     * @param command command parameters
+     * @return the according data of system and command (in order)
+     */
     List<String[]> getData(String system, String command) {
         URL url = null;
         try {

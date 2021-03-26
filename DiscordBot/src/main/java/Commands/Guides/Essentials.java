@@ -10,7 +10,18 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 import java.util.ArrayList;
 import java.util.List;
 
+// methods that are used alot
 public interface Essentials {
+
+    /**
+     * Sets an embed message with turnable pages
+     * @param e event
+     * @param eb the embed builder that allows for embed message to be built
+     * @param pages list of page objects that sets each page of the embed message
+     * @param system the overarching system of command
+     * @param command parameters of command
+     * @param title Title of the embed message
+     */
     static void setEmbedMessage(CommandEvent e, EmbedBuilder eb, ArrayList<Page> pages, String system, String command, String title) {
         StringDescriptions str = new StringDescriptions();
         List<String[]> data = str.getData(system, command);

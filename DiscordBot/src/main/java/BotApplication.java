@@ -14,7 +14,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import javax.security.auth.login.LoginException;
 
-
+// Initializes the bot
 public class BotApplication extends ListenerAdapter {
     public static void main(String[] args) throws LoginException, InvalidHandlerException {
         JDABuilder builder = JDABuilder.createDefault(Private.botToken);
@@ -35,6 +35,7 @@ public class BotApplication extends ListenerAdapter {
         builder.addEventListeners(client.build());
         JDA bot = builder.build();
 
+        // Initializes the paginator which enabled turnable embed messages
         Paginator paginator = PaginatorBuilder.createPaginator()
                 .setHandler(bot)
                 .shouldRemoveOnReact(true)

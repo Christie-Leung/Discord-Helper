@@ -17,8 +17,10 @@ import java.util.Map;
 
 import static Commands.Guides.Essentials.setEmbedMessage;
 
-
+// inherits GuidesCmd class
 public class Friend extends GuidesCmd {
+
+    // Sets essential settings for command (name, help message, parameters)
     public Friend() {
         this.name = "friend";
         this.help = "Helps you with everything friend related";
@@ -30,10 +32,12 @@ public class Friend extends GuidesCmd {
         EmbedBuilder eb = new EmbedBuilder();
         ArrayList<Page> pages = new ArrayList<>();
 
+        // First page
         String[] args = e.getArgs().toLowerCase().split("\\s+");
         eb.setImage("https://cdn.discordapp.com/attachments/821824091261763609/822182132477853707/unknown.png");
         eb.setTitle("The Friend System");
 
+        // Checks what parameters the user put and give the according guides
         if (args[0].contains("add")) {
             eb.setDescription("In this guide, you will learn how to add a friend!");
             pages.add(new Page(PageType.EMBED, eb.build()));

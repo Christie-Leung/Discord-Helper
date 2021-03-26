@@ -9,6 +9,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.util.UUID;
 
+// Spring boot Entity, initializes table and columns when create table is true
 @Entity
 @Table(name = "Command")
 @EntityListeners(AuditingEntityListener.class)
@@ -35,44 +36,45 @@ public class Command {
     private String image;
 
 
-
+    //Accessor methods
     public String getSystem() {
         return system;
-    }
-
-    public void setSystem(String system) {
-        this.system = system;
     }
 
     public String getCommand() {
         return command;
     }
 
-    public void setCommand(String command) {
-        this.command = command;
-    }
-
     public String getInstruction() {
         return instruction;
-    }
-
-    public void setInstruction(String instruction) {
-        this.instruction = instruction;
     }
 
     public String getImage() {
         return image;
     }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     public int getStepNum() {
         return stepNum;
     }
 
+    //Modifier methods
     public void setStepNum(int stepNum) {
         this.stepNum = stepNum;
+    }
+
+    public void setSystem(String system) {
+        this.system = system;
+    }
+
+    public void setCommand(String command) {
+        this.command = command;
+    }
+
+    public void setInstruction(String instruction) {
+        this.instruction = instruction;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

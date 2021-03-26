@@ -22,6 +22,7 @@ public class Help extends Command {
         this.help = "seems like you already know how to use this...";
     }
 
+    // Prints a help message with the according commands, parameters and help message sorted by categories
     @Override
     protected void execute(CommandEvent e) {
         EmbedBuilder eb = new EmbedBuilder();

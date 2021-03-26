@@ -1,6 +1,5 @@
 package com.example.api;
 
-import com.example.entity.Command;
 import com.example.entity.Steps;
 import com.example.repos.StepsRepo;
 import com.opencsv.CSVReader;
@@ -30,8 +29,19 @@ public class Tutorial1Controller {
         this.repo = repo;
     }
 
+    /**
+     * Gets the instruction according to the step number and button name
+     * @param step step number
+     * @param button button name
+     * @return if valid, it returns the instruction
+     */
     @GetMapping("/{step}/{button}")
     public ResponseEntity<?> getInstruction(@PathVariable("step") int step, @PathVariable("button") String button) {
+        if (repo.count() == 0) {
+            String path = System.getProperty("user.dir");
+            if (convertToSteps(path)) return ResponseEntity.badRequest().build();
+        }
+
         for (Steps steps : repo.findAll()) {
             if (steps.getStep() == step && button.toLowerCase().contains(steps.getButtonName().toLowerCase())) {
                 return ResponseEntity.ok(steps.getInstruction());
@@ -40,11 +50,13 @@ public class Tutorial1Controller {
         return ResponseEntity.badRequest().body("Error! Not Found!");
     }
 
-    @PostMapping("/upload")
-    public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) {
-        String path = System.getProperty("user.dir");
-        extractFile(file, path);
-        try (CSVReader reader = new CSVReader(new FileReader(path + "/resources/file.csv"))) {
+    /**
+     * Converts csv file data into steps that get added into the repository
+     * @param path path of current running program
+     * @return boolean of whether it failed to read file
+     */
+    private boolean convertToSteps(String path) {
+        try (CSVReader reader = new CSVReader(new FileReader(path + "/resources/step.csv"))) {
             List<String[]> data = reader.readAll();
             for (int i = 1, dataSize = data.size(); i < dataSize; i++) {
                 String[] d = data.get(i);
@@ -56,11 +68,29 @@ public class Tutorial1Controller {
             }
         } catch (IOException | CsvException e) {
             e.printStackTrace();
-            return ResponseEntity.badRequest().build();
+            return true;
         }
+        return false;
+    }
+
+    /**
+     * In case the files need to be updated, the upload command allows them to redo the data
+     * @param file file given to be uploaded/added to repo
+     * @return all data that got added into repo
+     */
+    @PostMapping("/upload")
+    public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) {
+        String path = System.getProperty("user.dir");
+        extractFile(file, path);
+        if (convertToSteps(path)) return ResponseEntity.badRequest().build();
         return ResponseEntity.ok(repo.findAll());
     }
 
+    /**
+     * extracts the file provided in the upload command, copying it into the default files
+     * @param file new version of file
+     * @param path path of current running program
+     */
     static void extractFile(@RequestParam("file") MultipartFile file, String path) {
         Path filepath = Paths.get(path + "/resources", file.getOriginalFilename());
 
