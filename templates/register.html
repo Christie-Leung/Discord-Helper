@@ -14,7 +14,7 @@
     <div class ="text">
         <p style="font-family:helvetica" style="font-size:11px">Hover over the areas highlighted by the red box and arrows to see the instructions on how to fill out each of the areas needed for registration. Follow along with the instructions shown. <br> Once you have filled out the form and pressed continue and a new page has opened, press the white arrow on the right</p>
     </div>
-    <a href="join.html">
+    <a href="{{ url_for('join') }}">
         <div class="next"></div>
     </a>
     <div id="arrowAnim">
@@ -152,7 +152,7 @@
 
 
 body {
-    background-image: url("register.png");
+    background-image: url({{ url_for('static', filename='images/register.png')}});
     height: 100vh;
     background-size: cover;
     background-position;

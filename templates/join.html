@@ -8,7 +8,7 @@
         <p style="font-family:helvetica" style="font-size:11px">Click on "Have an invite already? Join a server" as indicated by the red arrow. Once a new pop up has opened, press the white arrow on the right.</p>
     </div>
 
-    <a href="joinServer.html">
+    <a href="{{ url_for('joinServer') }}">
         <div class="next"></div>
     </a>
     <div id="arrowAnim">
@@ -20,7 +20,7 @@
 <style>
 
     body{
-        background-image: url("join.png");
+        background-image: url({{ url_for('static', filename='images/join.png')}});
         height: 100vh;
         background-size: cover;
         background-position;

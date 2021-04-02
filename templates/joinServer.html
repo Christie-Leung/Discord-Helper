@@ -12,7 +12,7 @@
     <div class ="text2">
         <p style="font-family:helvetica" style="font-size:11px"> After pasting the link in the box,<br>press the join button as indicated by the red arrow.</p>
     </div>
-    <a href="server.html">
+    <a href="{{ url_for('server') }}">
         <div class="next"></div>
     </a>
     <div id="arrowAnim">
@@ -67,7 +67,7 @@
     }
 
 body {
-    background-image: url("server.png");
+    background-image: url({{ url_for('static', filename='images/server.png')}});
     height: 100vh;
     background-size: cover;
     background-position;

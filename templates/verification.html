@@ -7,8 +7,8 @@
     <div class ="text">
         <p style="font-family:helvetica" style="font-size:11px">Login to the email you used when registering. You should see an email asking you to verify your account in your inbox (if not there check spam).<br>Open the email and press the button labelled "verify email" as indicated by the red arrow. Once a new page has opened, press the white arrow on the right</p>
     </div>
-    <img src="email.png" alt="email">
-    <a href="confirmation.html">
+    <img src="{{ url_for('static', filename='images/email.png')}}" alt="email">
+    <a href="{{ url_for('confirmation') }}">
         <div class="next"></div>
     </a>
     <div id="arrowAnim">
@@ -27,7 +27,7 @@
     }
 
     body{
-        background-image: url("background.jpg");
+        background-image: url({{ url_for('static', filename='images/background.jpg')}});
         height: 100vh;
         background-size: cover;
         background-position;

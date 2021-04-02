@@ -13,7 +13,7 @@
      <div class ="text">
         <p style="font-family:helvetica" style="font-size:11px"> Press the blue word "register" <br> as shown by the red arrow <br> on the discord website. This should <br> redirect you to a new page for <br> you to register. Once you<br> have successfully opened the register page <br> or want to preview the page<br>, press the white arrow <br>on the right</p>
     </div>
-    <a href="register.html">
+    <a href="{{ url_for('register') }}">
         <div class="next"></div>
     </a>
     <div id="arrowAnim">
@@ -89,7 +89,7 @@
 }
 
 body {
-    background-image: url("login.png");
+    background-image: url({{ url_for('static', filename='images/login.png')}});
     height: 100vh;
     background-size: cover;
     background-position;
