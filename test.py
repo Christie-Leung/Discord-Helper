@@ -38,6 +38,27 @@ def verification():
 def confirmation():
     return render_template('confirmation.html')
 
+@app.route("/returningLogin")
+def returningLogin():
+    return render_template('returningLogin.html')
+
+@app.route("/discord")
+def discord():
+    return render_template('discord.html')
+
+
+@app.route("/joinServerOld")
+def joinServerOld():
+    return render_template('joinServer2.html')
+
+@app.route("/link")
+def link():
+    return render_template('link.html')
+
+@app.route("/discordServer")
+def discordServer():
+    return render_template('discordServer.html')
+
 
 if __name__ == "__main__":
     app.run(debug = True)
