@@ -1,5 +1,5 @@
 from selenium import webdriver
-from objects import Button
+from objects import Button, Window, Objects
 import numpy
 
 
@@ -8,48 +8,33 @@ driver = webdriver.Safari()
 driver.get("https://discord.com/register")
 driver.maximize_window()
 
-def getPosition(list):
-    X = 0
-    Y = 0
-    for i in list:
-        X = list[0][1]
-        Y = list[1][1]
-        return X, Y
-
 def getInformation(xpath):
+    OBJECT = Button()
     object = driver.find_element_by_xpath(xpath)
-    objectLabel = object.text
-    objectPosition = object.location
-    coorofObject = list(objectPosition.items())
-    X, Y = getPosition(coorofObject)
-    objectDimension = object.size
-    sizeofObject = list(objectDimension.items())
-    W, H = getPosition(sizeofObject)
-    OBJECT = Button(X, Y, objectLabel, W, H)
+    OBJECT.setLabel(object.text)
+    OBJECT.setXY(list(object.location.items()))
+    OBJECT.setDimensions(list(object.size.items()))
     print(OBJECT.getLabel())
-    print(OBJECT.getX())
-    print(OBJECT.getY())
-    print(OBJECT.getW())
-    print(OBJECT.getH())
+    print(f"x: {OBJECT.getX()}")
+    print(f"y: {OBJECT.getY()}")
+    print(f"w: {OBJECT.getW()}")
+    print(f"h: {OBJECT.getH()}")
     return OBJECT
 
 def getInformationTextbox(xpath, XpathText):
+    OBJECT = Button()
     object = driver.find_element_by_xpath(xpath)
     objectTitle = driver.find_element_by_xpath(XpathText)
-    objectLabel = objectTitle.text
-    objectPosition = object.location
-    coorofObject = list(objectPosition.items())
-    X, Y = getPosition(coorofObject)
-    objectDimension = object.size
-    sizeofObject = list(objectDimension.items())
-    W, H = getPosition(sizeofObject)
-    OBJECT = Button(X, Y, objectLabel, W, H)
+    OBJECT.setLabel(objectTitle.text)
+    OBJECT.setXY(list(object.location.items()))
+    OBJECT.setDimensions(list(object.size.items()))
     print(OBJECT.getLabel())
-    print(OBJECT.getX())
-    print(OBJECT.getY())
-    print(OBJECT.getW())
-    print(OBJECT.getH())
+    print(f"x: {OBJECT.getX()}")
+    print(f"y: {OBJECT.getY()}")
+    print(f"w: {OBJECT.getW()}")
+    print(f"h: {OBJECT.getH()}")
     return OBJECT
+
 
 EMAIL = getInformationTextbox('//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[1]/div/input','//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[1]/h5')
 USERNAME = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[2]')
