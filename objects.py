@@ -51,8 +51,8 @@ class Button(Objects):
 
     def setDimensions(self,list):
         for i in list:
-            self.W = list[0][1]
-            self.H = list[1][1]
+            self.H = list[0][1]
+            self.W = list[1][1]
             return self.W, self.H
 
 

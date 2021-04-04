@@ -1,21 +1,96 @@
+from selenium import webdriver
+from objects import Button, Window, Objects,WebScraper
+import numpy
 from flask import Flask, request, url_for, redirect, render_template
 
+
+def getInformation(xpath, driver):
+    OBJECT = Button()
+    object = driver.find_element_by_xpath(xpath)
+    OBJECT.setLabel(object.text)
+    OBJECT.setXY(list(object.location.items()))
+    OBJECT.setDimensions(list(object.size.items()))
+    print(OBJECT.getLabel())
+    print(f"x: {OBJECT.getX()}")
+    print(f"y: {OBJECT.getY()}")
+    print(f"w: {OBJECT.getW()}")
+    print(f"h: {OBJECT.getH()}")
+    return OBJECT
+
+
+def getInformationTextbox(xpath, XpathText, driver):
+    OBJECT = Button()
+    object = driver.find_element_by_xpath(xpath)
+    objectTitle = driver.find_element_by_xpath(XpathText)
+    OBJECT.setLabel(objectTitle.text)
+    OBJECT.setXY(list(object.location.items()))
+    OBJECT.setDimensions(list(object.size.items()))
+    print(OBJECT.getLabel())
+    print(f"x: {OBJECT.getX()}")
+    print(f"y: {OBJECT.getY()}")
+    print(f"w: {OBJECT.getW()}")
+    print(f"h: {OBJECT.getH()}")
+    return OBJECT
+
 app = Flask(__name__)
+
+
 
 @app.route("/")
 def home():
     return render_template("home.html")
 
+
 @app.route("/start")
 def start():
-    return render_template('design.html')
+    WEB_HOME = WebScraper("http://discord.com")
+    WEB_HOME.setDriver(webdriver.Safari())
+    WEB_HOME.getDriverURL()
+    WEB_HOME.maximizeDriver()
+
+    WINDOW = Window()
+    WINDOW.setXY(list(WEB_HOME.getDriver().get_window_size().items()))
+    print(f"x: {WINDOW.getX()}")
+    print(f"y: {WINDOW.getY()}")
+
+    DOWNLOADBUTTON = getInformation('//*[@id="app-mount"]/div/div/div[1]/div[2]/div/div[2]/a', WEB_HOME.getDriver())
+    BROWSERBUTTON = getInformation('//*[@id="app-mount"]/div/div/div[1]/div[2]/div/div[2]/button', WEB_HOME.getDriver())
+    LOGINBUTTON = getInformation('//*[@id="app-mount"]/div/div/div[1]/div[1]/header[2]/nav/div[2]/a',WEB_HOME.getDriver())
+    WEB_HOME.quitDriver()
+    return render_template('design.html', downX = DOWNLOADBUTTON.getX(), downY = DOWNLOADBUTTON.getY(), downW = DOWNLOADBUTTON.getW(), downH = DOWNLOADBUTTON.getH(), browX = BROWSERBUTTON.getX(), browY = BROWSERBUTTON.getY(), browW = BROWSERBUTTON.getW(), browH = BROWSERBUTTON.getH())
 
 @app.route("/login")
 def login():
+    WEB_LOGIN = WebScraper("https://discord.com/login")
+    WEB_LOGIN.setDriver(webdriver.Safari())
+    WEB_LOGIN.getDriverURL()
+    WEB_LOGIN.maximizeDriver()
+
+    USERNAME = getInformationTextbox('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[1]/div/div[2]/input','//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[1]/h5', WEB_LOGIN.getDriver())
+    PASSWORD = getInformationTextbox('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[2]/div/input','//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[2]/h5', WEB_LOGIN.getDriver())
+    FORGOTPASSWORD = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/button[1]/div',WEB_LOGIN.getDriver())
+    LOGIN = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/button[2]',WEB_LOGIN.getDriver())
+    REGISTER = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[3]',WEB_LOGIN.getDriver())
+    QR = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[3]', WEB_LOGIN.getDriver())
+    WEB_LOGIN.quitDriver()
     return render_template('login.html')
 
 @app.route("/register")
 def register():
+    WEB_REGISTER = WebScraper("https://discord.com/register")
+    WEB_REGISTER.setDriver(webdriver.Safari())
+    WEB_REGISTER.getDriverURL()
+    WEB_REGISTER.maximizeDriver()
+
+    EMAIL = getInformationTextbox('//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[1]/div/input','//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[1]/h5',WEB_REGISTER.getDriver())
+    USERNAME = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[2]', WEB_REGISTER.getDriver())
+    PASSWORD = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[3]',WEB_REGISTER.getDriver())
+    BIRTHDAY = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[4]/h5',WEB_REGISTER.getDriver())
+    MONTH = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[4]/div[1]/div[1]',WEB_REGISTER.getDriver())
+    DATE = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[4]/div[1]/div[2]',WEB_REGISTER.getDriver())
+    YEAR = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[4]/div[1]/div[3]',WEB_REGISTER.getDriver())
+    CONTINUE = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[5]/button',WEB_REGISTER.getDriver())
+    WEB_REGISTER.quitDriver()
     return render_template('register.html')
 
 @app.route("/join")
