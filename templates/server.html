@@ -10,6 +10,9 @@
     <a href="{{ url_for('verification') }}">
         <div class="next"></div>
     </a>
+    <a href="{{ url_for('joinServer') }}">
+        <div class="back"></div>
+    </a>
 
 </body>
 <style>
@@ -28,9 +31,25 @@
   border-color: white transparent transparent white;
   transform: rotate(-225deg);
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 90%;
 
+}
+
+.back {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 30%;
+  left: 5%;
+
+}
+.back:hover,
+.next:hover {
+  border-color: red transparent transparent red;
 }
 
 .text{

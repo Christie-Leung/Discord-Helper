@@ -13,9 +13,14 @@
      <div class ="text">
         <p style="font-family:helvetica" style="font-size:11px"> Press the blue word "register" <br> as shown by the red arrow <br> on the discord website. This should <br> redirect you to a new page for <br> you to register. Once you<br> have successfully opened the register page <br> or want to preview the page<br>, press the white arrow <br>on the right</p>
     </div>
+    <a href="{{ url_for('start') }}">
+        <div class="back"></div>
+    </a>
+
     <a href="{{ url_for('register') }}">
         <div class="next"></div>
     </a>
+
     <div id="arrowAnim">
         <div class="arrowSliding">
         <div class="arrow"></div>
@@ -37,10 +42,27 @@
   border-color: white transparent transparent white;
   transform: rotate(-225deg);
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 90%;
 
 }
+.back {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 30%;
+  left: 5%;
+
+}
+.back:hover,
+.next:hover {
+  border-color: red transparent transparent red;
+}
+
+
 .text{
     border-radius: .3rem;
     text-align: center;

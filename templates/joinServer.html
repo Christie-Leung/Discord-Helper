@@ -15,6 +15,9 @@
     <a href="{{ url_for('server') }}">
         <div class="next"></div>
     </a>
+    <a href="{{ url_for('join') }}">
+        <div class="back"></div>
+    </a>
     <div id="arrowAnim">
         <div class="arrowSliding">
         <div class="arrow"></div>
@@ -33,9 +36,24 @@
   border-color: white transparent transparent white;
   transform: rotate(-225deg);
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 90%;
 
+}
+.back {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 30%;
+  left: 5%;
+
+}
+.back:hover,
+.next:hover {
+  border-color: red transparent transparent red;
 }
 .text{
     border-radius: .3rem;
@@ -118,10 +136,10 @@ body {
 }
 
  .box{
- width:416px;
+ width:428px;
  position: absolute;
- top: calc(365 * 1px);
- left: calc(665 * 1px);
+ top: calc(370 * 1px);
+ left: calc(670 * 1px);
  height:44px;
  background: transparent;
  outline: 5px solid red;

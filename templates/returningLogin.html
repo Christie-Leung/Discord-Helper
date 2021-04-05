@@ -16,6 +16,9 @@
     <a href="{{ url_for('discord') }}">
         <div class="next"></div>
     </a>
+    <a href="{{ url_for('home') }}">
+        <div class="back"></div>
+    </a>
     <div id="arrowAnim">
         <div class="arrowSliding">
         <div class="arrow"></div>
@@ -33,9 +36,6 @@
 
 
 
-    <!--<h1>Home Page</h1> -->
-    <!-- <p>Hello!</p> -->
-    <!-- <iframe src="http://www.discord.com" width = "100%" height = "560px"></iframe> -->
 </body>
 <style>
 .next {
@@ -45,9 +45,24 @@
   border-color: white transparent transparent white;
   transform: rotate(-225deg);
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 90%;
 
+}
+.back {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 30%;
+  left: 5%;
+
+}
+.back:hover,
+.next:hover {
+  border-color: red transparent transparent red;
 }
 .text{
     border-radius: .3rem;
@@ -131,7 +146,7 @@ body {
 .box{
  width:412px;
  position: absolute;
- top: calc(324 * 1px);
+ top: calc(330 * 1px);
  left: calc(361 * 1px);
  height:41px;
  background: transparent;
@@ -141,7 +156,7 @@ body {
  .box1{
  width:414px;
  position: absolute;
- top: calc( 409* 1px);
+ top: calc( 415* 1px);
  left: calc(360 * 1px);
  height:41px;
  background: transparent;
@@ -151,7 +166,7 @@ body {
   .box2{
  width:136px;
  position: absolute;
- top: calc(456 * 1px);
+ top: calc(462 * 1px);
  left: calc(362 * 1px);
  height:17px;
  background: transparent;
@@ -161,7 +176,7 @@ body {
  .box3{
  width:414px;
  position: absolute;
- top: calc(494 * 1px);
+ top: calc(500 * 1px);
  left: calc(360 * 1px);
  height:45px;
  background: transparent;
@@ -171,7 +186,7 @@ body {
  .box4{
  width:414px;
  position: absolute;
- top: calc(546 * 1px);
+ top: calc(552 * 1px);
  left: calc(360 * 1px);
  height:19px;
  background: transparent;
@@ -180,7 +195,7 @@ body {
   .box5{
  width:240px;
  position: absolute;
- top: calc(221 * 1px);
+ top: calc(229 * 1px);
  left: calc(840 * 1px);
  height:345px;
  background: transparent;

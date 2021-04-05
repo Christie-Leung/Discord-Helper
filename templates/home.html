@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<div class ="button" onclick="return popitup('{{ url_for('start') }}')">
+<div class ="button" onclick="return popitup('{{ url_for('start') }}', {{winX}}, {{winY}})">
     <p style="font-family:helvetica" style="font-size:11px"><b>START GUIDED TUTORIAL</b></p>
 </div>
 
@@ -96,8 +96,12 @@
 
 <script language="javascript" type="text/javascript">
 
-function popitup(url) {
-    newwindow=window.open(url,'help','height=822px,width=1440px');
+
+function popitup(url, winX, winY) {
+    var X = String(winX + "px")
+    var Y = String(winY + "px")
+
+    newwindow=window.open(url,'help','height=X,width=Y');
 
 }
 

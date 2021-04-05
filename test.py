@@ -3,6 +3,7 @@ from objects import Button, Window, Objects,WebScraper
 from selenium.webdriver import Chrome
 import numpy
 from flask import Flask, request, url_for, redirect, render_template
+import requests
 
 
 def getInformation(xpath, driver):
@@ -68,6 +69,15 @@ def start():
     BROWSERBUTTON = getInformation('//*[@id="app-mount"]/div/div/div[1]/div[2]/div/div[2]/button', WEB_HOME.getDriver())
     LOGINBUTTON = getInformation('//*[@id="app-mount"]/div/div/div[1]/div[1]/header[2]/nav/div[2]/a',WEB_HOME.getDriver())
     WEB_HOME.quitDriver()
+    """
+    DOWNLOADBUTTON.setText(1)
+    DOWNLOADTEXT = DOWNLOADBUTTON.getText()
+    BROWSERBUTTON.setText(1)
+    BROWSERTEXT = BROWSERBUTTON.getText()
+    LOGINBUTTON.setText(1)
+    LOGINTEXT = LOGINBUTTON.getText()
+    """
+
     return render_template('design.html', downX = DOWNLOADBUTTON.getX(), downY = DOWNLOADBUTTON.getY(), downW = DOWNLOADBUTTON.getW(), downH = DOWNLOADBUTTON.getH(), browX = BROWSERBUTTON.getX(), browY = BROWSERBUTTON.getY(), browW = BROWSERBUTTON.getW(), browH = BROWSERBUTTON.getH(),logX = LOGINBUTTON.getX(), logY = LOGINBUTTON.getY(), logW = LOGINBUTTON.getW(), logH = LOGINBUTTON.getH())
 
 @app.route("/login")

@@ -7,6 +7,12 @@
     <div class ="text">
         <p style="font-family:helvetica" style="font-size:11px">A webpage that looks like this should have been opened</p>
     </div>
+    <a href="{{ url_for('home') }}">
+        <div class="next"></div>
+    </a>
+     <a href="{{ url_for('link') }}">
+        <div class="back"></div>
+    </a>
 
 
 </body>
@@ -34,6 +40,33 @@ color: #333;
 padding: .7rem;
 width: max-content;
     }
+
+.next {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-225deg);
+  position: absolute;
+  top: 60%;
+  left: 90%;
+
+}
+.back {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 60%;
+  left: 5%;
+
+}
+.back:hover,
+.next:hover {
+  border-color: red transparent transparent red;
+}
 
 
 </style>
