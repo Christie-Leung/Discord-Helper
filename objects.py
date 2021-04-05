@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver import Chrome
 import numpy
 import requests
 
@@ -144,7 +145,7 @@ if __name__ == "__main__":
     WEB_LOGIN.getDriverURL()
     WEB_LOGIN.maximizeDriver()
 
-    USERNAME = getInformationTextbox('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[1]/div/div[2]/input','//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[1]/h5',WEB_LOGIN.getDriver())
+    USERNAME = getInformationTextbox('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[1]/div/div[2]','//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[1]/h5',WEB_LOGIN.getDriver())
     PASSWORD = getInformationTextbox('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[2]/div/input','//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[2]/h5',WEB_LOGIN.getDriver())
     FORGOTPASSWORD = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/button[1]/div',WEB_LOGIN.getDriver())
     LOGIN = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/button[2]',WEB_LOGIN.getDriver())

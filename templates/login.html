@@ -45,7 +45,7 @@
     border-radius: .3rem;
     text-align: center;
     position: absolute;
-    top: 480px;
+    top: 450px;
     left: 20px;
     background-color: white;
     border-radius: 20px;
@@ -90,65 +90,70 @@
 
 body {
     background-image: url({{ url_for('static', filename='images/login.png')}});
+    background-size:cover;
+    background-repeat: no-repeat;
     height: 100vh;
-    background-size: cover;
-    background-position;
+    width: 100%;
+    position:fixed;
+    margin: 0 auto;
 }
+/* Username */
  .box{
- width:412px;
+ width:{{userW}}px;
  position: absolute;
- top: calc(324 * 1px);
- left: calc(361 * 1px);
- height:41px;
+ top: calc({{userY}}px + 48px);
+ left: {{userX}}px;
+ height:{{userH}}px;
  background: transparent;
  outline: 5px solid red;
  }
 /* Password */
  .box1{
- width:414px;
+ width:{{passW}}px;
  position: absolute;
- top: calc( 409* 1px);
- left: calc(360 * 1px);
- height:41px;
+ top: calc({{passY}}px + 48px);
+ left: {{passX}}px;
+ height:{{passH}}px;
  background: transparent;
  outline: 5px solid red;
  }
  /* Forgot Password */
   .box2{
- width:136px;
+ width:{{forgotW}}px;
  position: absolute;
- top: calc(456 * 1px);
- left: calc(362 * 1px);
- height:17px;
+ top:calc({{forgotY}}px + 48px);
+ left:{{forgotX}}px;
+ height:{{forgotH}}px;
  background: transparent;
  outline: 5px solid red;
  }
   /* Login */
  .box3{
- width:414px;
+ width:{{loginW}}px;
  position: absolute;
- top: calc(494 * 1px);
- left: calc(360 * 1px);
- height:45px;
+ top: calc({{loginY}}px + 48px);
+ left: {{loginX}}px;
+ height:{{loginH}}px;
  background: transparent;
  outline: 5px solid red;
  }
    /* Register */
  .box4{
- width:414px;
+ width:{{regW}}px;
  position: absolute;
- top: calc(546 * 1px);
- left: calc(360 * 1px);
- height:19px;
+ top: calc({{regY}}px + 48px);
+ left: {{regX}}px;
+ height:{{regH}}px;
  background: transparent;
  outline: 5px solid red;
  }
+ /*QR*/
   .box5{
- width:240px;
+ width:{{QRW}}px;
  position: absolute;
- top: calc(221 * 1px);
- left: calc(840 * 1px);
- height:345px;
+ top: calc({{QRY}}px + 48px);
+ left: {{QRX}}px;
+ height:{{QRH}}px;
  background: transparent;
  outline: 5px solid red;
  }
