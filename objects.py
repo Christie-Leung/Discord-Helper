@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver import Chrome
+from selenium.webdriver.chrome.options import Options
 import numpy
 import requests
 
@@ -81,9 +82,6 @@ class WebScraper():
     def getDriver(self):
         return self.DRIVER
 
-    def maximizeDriver(self):
-        return self.DRIVER.maximize_window()
-
     def quitDriver(self):
         return self.DRIVER.quit()
 
@@ -122,11 +120,14 @@ if __name__ == "__main__":
         return OBJECT
 
 
-
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
     WEB_HOME = WebScraper("http://discord.com")
-    WEB_HOME.setDriver(webdriver.Safari())
+    WEB_HOME.setDriver(webdriver.Chrome(options=chrome_options))
     WEB_HOME.getDriverURL()
     WEB_HOME.maximizeDriver()
+
+
 
 
     WINDOW= Window()

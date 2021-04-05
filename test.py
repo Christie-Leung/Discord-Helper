@@ -1,5 +1,6 @@
 from selenium import webdriver
 from objects import Button, Window, Objects,WebScraper
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import Chrome
 import numpy
 from flask import Flask, request, url_for, redirect, render_template
@@ -40,10 +41,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
+    chrome_options = Options()
+    chrome_options.add_argument("--window-size=1440,823")
+    chrome_options.add_argument("--headless")
     WEB = WebScraper("http://discord.com")
-    WEB.setDriver(Chrome())
+    WEB.setDriver(webdriver.Chrome(options=chrome_options))
     WEB.getDriverURL()
-    WEB.maximizeDriver()
 
     WINDOW = Window()
     WINDOW.setXY(list(WEB.getDriver().get_window_size().items()))
@@ -55,10 +58,12 @@ def home():
 
 @app.route("/start")
 def start():
+    chrome_options = Options()
+    chrome_options.add_argument("--window-size=1440,823")
+    chrome_options.add_argument("--headless")
     WEB_HOME = WebScraper("http://discord.com")
-    WEB_HOME.setDriver(Chrome())
+    WEB_HOME.setDriver(webdriver.Chrome(options=chrome_options))
     WEB_HOME.getDriverURL()
-    WEB_HOME.maximizeDriver()
 
     WINDOW = Window()
     WINDOW.setXY(list(WEB_HOME.getDriver().get_window_size().items()))
@@ -78,14 +83,17 @@ def start():
     LOGINTEXT = LOGINBUTTON.getText()
     """
 
+
     return render_template('design.html', downX = DOWNLOADBUTTON.getX(), downY = DOWNLOADBUTTON.getY(), downW = DOWNLOADBUTTON.getW(), downH = DOWNLOADBUTTON.getH(), browX = BROWSERBUTTON.getX(), browY = BROWSERBUTTON.getY(), browW = BROWSERBUTTON.getW(), browH = BROWSERBUTTON.getH(),logX = LOGINBUTTON.getX(), logY = LOGINBUTTON.getY(), logW = LOGINBUTTON.getW(), logH = LOGINBUTTON.getH())
 
 @app.route("/login")
 def login():
+    chrome_options = Options()
+    chrome_options.add_argument("--window-size=1440,823")
+    chrome_options.add_argument("--headless")
     WEB_LOGIN = WebScraper("https://discord.com/login")
-    WEB_LOGIN.setDriver(Chrome())
+    WEB_LOGIN.setDriver(webdriver.Chrome(options=chrome_options))
     WEB_LOGIN.getDriverURL()
-    WEB_LOGIN.maximizeDriver()
 
     USERNAME = getInformationTextbox('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[1]/div/div[2]/input','//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[1]/h5', WEB_LOGIN.getDriver())
     PASSWORD = getInformationTextbox('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[2]/div/input','//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[2]/h5', WEB_LOGIN.getDriver())
@@ -98,10 +106,12 @@ def login():
 
 @app.route("/register")
 def register():
+    chrome_options = Options()
+    chrome_options.add_argument("--window-size=1440,823")
+    chrome_options.add_argument("--headless")
     WEB_REGISTER = WebScraper("https://discord.com/register")
-    WEB_REGISTER.setDriver(webdriver.Chrome())
+    WEB_REGISTER.setDriver(webdriver.Chrome(options=chrome_options))
     WEB_REGISTER.getDriverURL()
-    WEB_REGISTER.maximizeDriver()
 
     EMAIL = getInformationTextbox('//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[1]/div/input','//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[1]/h5',WEB_REGISTER.getDriver())
     USERNAME = getInformation('//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[2]', WEB_REGISTER.getDriver())
