@@ -11,7 +11,7 @@
 
 
 
-<div class ="button2" onclick="return popitup('{{ url_for('returningLogin') }}')">
+<div class ="button2" onclick="return popitup('{{ url_for('returningLogin') }}', 1440, 823)">
     <p style="font-family:helvetica" style="font-size:11px"><b>JOIN SERVER</b></p>
 </div>
 
@@ -103,6 +103,8 @@ function popitup(url, winX, winY) {
     var Y = String(winY + "px")
 
     newwindow=window.open(url,'help','height=X,width=Y');
+    newwindow.resizeTo(winX, winY);
+    newwindow.focus();
 
 }
 
