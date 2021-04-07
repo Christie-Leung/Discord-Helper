@@ -45,7 +45,7 @@ def home():
     chrome_options.add_argument("--window-size=1440,823")
     chrome_options.add_argument("--headless")
     WEB = WebScraper("http://discord.com")
-    WEB.setDriver(webdriver.Chrome(options=chrome_options))
+    WEB.setDriver(webdriver.Chrome(executable_path="path/to/chromedriver", options=chrome_options))
     WEB.getDriverURL()
 
     WINDOW = Window()
@@ -62,7 +62,7 @@ def start():
     chrome_options.add_argument("--window-size=1440,823")
     chrome_options.add_argument("--headless")
     WEB_HOME = WebScraper("http://discord.com")
-    WEB_HOME.setDriver(webdriver.Chrome(options=chrome_options))
+    WEB_HOME.setDriver(webdriver.Chrome(executable_path="path/to/chromedriver", options=chrome_options))
     WEB_HOME.getDriverURL()
 
     WINDOW = Window()
@@ -74,17 +74,17 @@ def start():
     BROWSERBUTTON = getInformation('//*[@id="app-mount"]/div/div/div[1]/div[2]/div/div[2]/button', WEB_HOME.getDriver())
     LOGINBUTTON = getInformation('//*[@id="app-mount"]/div/div/div[1]/div[1]/header[2]/nav/div[2]/a',WEB_HOME.getDriver())
     WEB_HOME.quitDriver()
-    """
+
     DOWNLOADBUTTON.setText(1)
     DOWNLOADTEXT = DOWNLOADBUTTON.getText()
     BROWSERBUTTON.setText(1)
     BROWSERTEXT = BROWSERBUTTON.getText()
     LOGINBUTTON.setText(1)
     LOGINTEXT = LOGINBUTTON.getText()
-    """
 
 
-    return render_template('design.html', downX = DOWNLOADBUTTON.getX(), downY = DOWNLOADBUTTON.getY(), downW = DOWNLOADBUTTON.getW(), downH = DOWNLOADBUTTON.getH(), browX = BROWSERBUTTON.getX(), browY = BROWSERBUTTON.getY(), browW = BROWSERBUTTON.getW(), browH = BROWSERBUTTON.getH(),logX = LOGINBUTTON.getX(), logY = LOGINBUTTON.getY(), logW = LOGINBUTTON.getW(), logH = LOGINBUTTON.getH())
+
+    return render_template('design.html', downX = DOWNLOADBUTTON.getX(), downY = DOWNLOADBUTTON.getY(), downW = DOWNLOADBUTTON.getW(), downH = DOWNLOADBUTTON.getH(), browX = BROWSERBUTTON.getX(), browY = BROWSERBUTTON.getY(), browW = BROWSERBUTTON.getW(), browH = BROWSERBUTTON.getH(),logX = LOGINBUTTON.getX(), logY = LOGINBUTTON.getY(), logW = LOGINBUTTON.getW(), logH = LOGINBUTTON.getH(), DOWNLOADTEXT = DOWNLOADTEXT, BROWSERTEXT = BROWSERTEXT, LOGINTEXT = LOGINTEXT)
 
 @app.route("/login")
 def login():
@@ -92,7 +92,7 @@ def login():
     chrome_options.add_argument("--window-size=1440,823")
     chrome_options.add_argument("--headless")
     WEB_LOGIN = WebScraper("https://discord.com/login")
-    WEB_LOGIN.setDriver(webdriver.Chrome(options=chrome_options))
+    WEB_LOGIN.setDriver(webdriver.Chrome(executable_path="path/to/chromedriver", options=chrome_options))
     WEB_LOGIN.getDriverURL()
 
     USERNAME = getInformationTextbox('//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[1]/div/div[2]/input','//*[@id="app-mount"]/div[2]/div/div[2]/div/div/form/div/div/div[1]/div[3]/div[1]/h5', WEB_LOGIN.getDriver())
@@ -110,7 +110,7 @@ def register():
     chrome_options.add_argument("--window-size=1440,823")
     chrome_options.add_argument("--headless")
     WEB_REGISTER = WebScraper("https://discord.com/register")
-    WEB_REGISTER.setDriver(webdriver.Chrome(options=chrome_options))
+    WEB_REGISTER.setDriver(webdriver.Chrome(executable_path="path/to/chromedriver.exe", options=chrome_options))
     WEB_REGISTER.getDriverURL()
 
     EMAIL = getInformationTextbox('//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[1]/div/input','//*[@id="app-mount"]/div[2]/div/div[2]/div/form/div/div[2]/div[1]/h5',WEB_REGISTER.getDriver())
