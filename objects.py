@@ -39,7 +39,7 @@ class Button(Objects):
         return self.LABEL
 
     def setLabel(self,label):
-        self.LABEL = str(label)
+        self.LABEL = label
 
     def getText(self):
         return self.TEXT
@@ -59,8 +59,8 @@ class Button(Objects):
 
 
     def setText(self,STEPNUM):
-        request = requests.get(f'http://192.168.1.79:8080/api/step/{STEPNUM}/{self.LABEL}')
-        self.TEXT = request.text
+        requestText = requests.get(f'http://192.168.1.79:8080/api/step/{STEPNUM}/{self.LABEL}')
+        self.TEXT = str(requestText.text)
         return self.TEXT
 
 
