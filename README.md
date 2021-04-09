@@ -30,7 +30,7 @@ The discord bot provides guides on internal discord functions through commands. 
 
 To run the discord bot, you must have a discord account and register for a bot application (https://discord.com/login?redirect_to=%2Fdevelopers%2Fapplications) 
 
-![DiscordBot](images/discordbot.png)
+![DiscordBot](https://cdn.discordapp.com/attachments/667562078038654976/830168330883039282/unknown.png)
 
 In the **Private.java** file, you must change the bot token and owner ID to fit yours.
 
@@ -44,7 +44,7 @@ After that, run the `BotApplication.java` file.
 ## Functions
 When you have invited the bot onto a server or joined a server with this bot, you can use the command *!help* to see all guides available. 
 
-![help command](images/help.png)
+![help command](https://cdn.discordapp.com/attachments/667562078038654976/830169457666162728/unknown.png)
 
 **Available commands:**
 !friend add
@@ -67,7 +67,7 @@ To run the MySQL database, you must install mysql. Once configured, you can type
 
 The information for the data is already in the program code. However, to update or change the file, you can download postman to POST the updated information:
 
-![post](images/post.png)
+![post](https://cdn.discordapp.com/attachments/667562078038654976/830171943830683718/unknown.png)
 
 The full data can be found here: https://docs.google.com/spreadsheets/d/1BLZmQvOhcA2PxyjseBj8E5dHTtntHksSuH8ucfhEiGU/edit?usp=sharing
 
