@@ -56,7 +56,7 @@ public class Tutorial1Controller {
      * @return boolean of whether it failed to read file
      */
     private boolean convertToSteps(String path) {
-        try (CSVReader reader = new CSVReader(new FileReader(path + "/resources/step.csv"))) {
+        try (CSVReader reader = new CSVReader(new FileReader(path + "/databaseapi/src/main/resources/step.csv"))) {
             List<String[]> data = reader.readAll();
             for (int i = 1, dataSize = data.size(); i < dataSize; i++) {
                 String[] d = data.get(i);

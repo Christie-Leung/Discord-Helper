@@ -44,3 +44,10 @@ public interface Essentials {
         e.getChannel().sendMessage((MessageEmbed) pages.get(0).getContent()).queue(success -> Pages.paginate(success, pages));
     }
 }
+
+
+
+
+
+
+

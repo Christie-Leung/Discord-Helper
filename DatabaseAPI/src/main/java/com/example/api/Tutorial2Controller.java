@@ -64,7 +64,7 @@ public class Tutorial2Controller {
      * @return boolean of whether it failed to read file
      */
     private boolean convertToCommand(String path) {
-        try (CSVReader reader = new CSVReader(new FileReader(path + "/resources/command.csv"))) {
+        try (CSVReader reader = new CSVReader(new FileReader(path + "/databaseapi/src/main/resources/command.csv"))) {
             List<String[]> data = reader.readAll();
             for (int i = 1, dataSize = data.size(); i < dataSize; i++) {
                 String[] d = data.get(i);

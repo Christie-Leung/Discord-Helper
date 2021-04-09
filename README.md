@@ -1,10 +1,10 @@
 # CSE3910- Individual Project
 
-## Guided Social Media Application
-#### by Chelsea Chen & Christie Leung
+**Guided Social Media Application**
+by Chelsea Chen & Christie Leung
 
 # Overview
-This application comprises of three parts: web-application, discord bot, and a Rest API where a MySQL Database can be assessed. 
+This application consists of three parts: web-application, discord bot, and a Rest API where a MySQL Database can be assessed. 
 
 The following is needed in order to run this application:
 - Python 2.7
@@ -35,9 +35,11 @@ To run the discord bot, you must have a discord account and register for a bot a
 In the **Private.java** file, you must change the bot token and owner ID to fit yours.
 
 
-![StringDescriptions](images/stringdescriptions.png)
+![StringDescriptions](images/stringDescriptions.png)
 
 In **StringDescriptions.java**, you may want to change the address of the request depending on where the database is running.
+
+After that, run the `BotApplication.java` file.
 
 ## Functions
 When you have invited the bot onto a server or joined a server with this bot, you can use the command *!help* to see all guides available. 
@@ -68,6 +70,8 @@ The information for the data is already in the program code. However, to update 
 ![post](images/post.png)
 
 The full data can be found here: https://docs.google.com/spreadsheets/d/1BLZmQvOhcA2PxyjseBj8E5dHTtntHksSuH8ucfhEiGU/edit?usp=sharing
+
+After that, run the `DatabaseApplication.java` file.
 
 
 
