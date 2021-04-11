@@ -4,10 +4,10 @@
     <title>Home page</title>
 </head>
 <body>
-    <div class="box" data-tooltip="If you already have an account, type in your username here"> </div>
+    <div class="box" data-tooltip="{{USERTEXT}}"> </div>
     <div class="box1" data-tooltip="If you already have an account, type in your password here"> </div>
     <div class="box2" data-tooltip="If you have forgotten your password, click here to learn how to reset your password"> </div>
-    <div class="box3" data-tooltip="Click Here to Login"> </div>
+    <div class="box3" data-tooltip="{{LOGINTEXT}}"> </div>
     <div class="box4" data-tooltip="Click Here to begin registering for an account if you currently do not have one or want to create a new account"> </div>
     <div class="box5" data-tooltip="Download the Discord Mobile app on a mobile device and scan this QR code to login. To see more instructions click here"> </div>
      <div class ="text">
@@ -110,70 +110,73 @@
   100% { opacity:0; transform: translateX(+108px); }
 }
 
-body {
-    background-image: url({{ url_for('static', filename='images/login.png')}});
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+html{
+    background-image: url({{ url_for('static', filename='images/login1.png')}});
+    background-size:cover;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 /* Username */
  .box{
- width:{{userW}}px;
+ width:calc({{userW}}/1440 * 100%);
  position: absolute;
- top: calc({{userY}}px - 15px);
- left: {{userX}}px;
- height:{{userH}}px;
+ top: calc({{userY}}/823 * 100%);
+ left: calc({{userX}}/1440 * 100%);
+ height:calc({{userH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;
  }
 /* Password */
  .box1{
- width:{{passW}}px;
+ width: calc({{passW}}/1440 * 100%);
  position: absolute;
- top: calc({{passY}}px - 15px);
- left: {{passX}}px;
- height:{{passH}}px;
+ top: calc({{passY}}/823 *100%);
+ left: calc({{passX}}/1440 * 100%);
+ height: calc({{passH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;
  }
  /* Forgot Password */
   .box2{
- width:{{forgotW}}px;
+ width:calc({{forgotW}}/1440 * 100%);
  position: absolute;
- top:calc({{forgotY}}px - 15px);
- left:{{forgotX}}px;
- height:{{forgotH}}px;
+ top:calc({{forgotY}}/823 * 100%);
+ left:calc({{forgotX}}/1440 * 100%);
+ height:calc({{forgotH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;
  }
   /* Login */
  .box3{
- width:{{loginW}}px;
+ width:calc({{loginW}}/1440 * 100%);
  position: absolute;
- top:calc({{loginY}}px - 15px);
- left: {{loginX}}px;
- height:{{loginH}}px;
+ top:calc({{loginY}}/823 * 100%);
+ left: calc({{loginX}}/1440 * 100%);
+ height: calc({{loginH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;
  }
    /* Register */
  .box4{
- width:{{regW}}px;
+ width:calc({{regW}}/1440 * 100%);
  position: absolute;
- top:calc({{regY}}px - 15px);
- left: {{regX}}px;
- height:{{regH}}px;
+ top:calc({{regY}}/823 * 100%);
+ left: calc({{regX}}/1440 * 100%);
+ height: calc({{regH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;
  }
  /*QR*/
   .box5{
- width:{{QRW}}px;
+ width: calc({{QRW}}/1440 * 100%);
  position: absolute;
- top: calc({{QRY}}px - 15px);
- left: {{QRX}}px;
- height:{{QRH}}px;
+ top: calc({{QRY}}/823 * 100%);
+ left: calc({{QRX}}/1440 * 100%);
+ height:calc({{QRH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;
  }

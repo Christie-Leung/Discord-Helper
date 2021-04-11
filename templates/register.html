@@ -4,13 +4,13 @@
     <title>Home page</title>
 </head>
 <body>
-    <div class="box" data-tooltip="Enter your email address to use to sign up for your account here"> </div>
-    <div class="box1" data-tooltip="type in a unique username for your account here"> </div>
-    <div class="box2" data-tooltip="Enter a unique password to use for your account (we recommend a password with special charecters, at least 8 charecters, and a mix of upper and lowercase letters)"> </div>
+    <div class="box" data-tooltip="{{EMAILTEXT}}"> </div>
+    <div class="box1" data-tooltip="{{USERTEXT}}"> </div>
+    <div class="box2" data-tooltip="{{PASSTEXT}}"> </div>
     <div class="box3" data-tooltip="Click and Select your month of birth using the dropdown bar"> </div>
     <div class="box4" data-tooltip="Click and Select your day of birth using the dropdown bar"> </div>
     <div class="box5" data-tooltip="Click and Select your birth year using the dropdown bar"> </div>
-    <div class="box6" data-tooltip="Once you have filled in all of the other areas highlighted by the red boxes, press 'continue' (Please read terms and conditions found here: https://discord.com/terms and privacy policy found here:https://discord.com/privacy first)"> </div>
+    <div class="box6" data-tooltip="{{CONTINUETEXT}}"> </div>
     <div class ="text">
         <p style="font-family:helvetica" style="font-size:11px">Hover over the areas highlighted by the red box and arrows to see the instructions on how to fill out each of the areas needed for registration. Follow along with the instructions shown. <br> Once you have filled out the form and pressed continue and a new page has opened, press the white arrow on the right</p>
     </div>
@@ -90,8 +90,8 @@
 }
 #arrowAnim {
   position:absolute;
-  top: 230px;
-  left:450px;
+  top: calc({{emailY}}/823 * 100%);
+  left:calc({{emailX}}/1440 * 100%);
   width: 10px;
   height: 10px;
   display: flex;
@@ -169,80 +169,83 @@
 
 
 
-body {
-    background-image: url({{ url_for('static', filename='images/register.png')}});
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+html {
+    background-image: url({{ url_for('static', filename='images/register1.png')}});
+    background-size:cover;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 /* Email */
  .box{
- width:{{emailW}}px;
+ width:calc({{emailW}}/1440 * 100%);
  position: absolute;
- top:calc({{emailY}}px - 15px);
- left: {{emailX}}px;
- height:{{emailH}}px;
+ top:calc({{emailY}}/823 * 100%);
+ left: calc({{emailX}}/1440 * 100%);
+ height: calc({{emailH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;;
  }
 /* Username */
  .box1{
- width:{{userW}}px;
+ width: calc({{userW}}/1440 * 100%);
  position: absolute;
- top: calc({{userY}}px - 15px);
- left: {{userX}}px;
- height:{{userH}}px;
+ top: calc({{userY}}/823 * 100%);
+ left: calc({{userX}}/1440 * 100%);
+ height: calc({{userH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;
  }
  /* Password */
   .box2{
- width:{{passW}}px;
+ width: calc({{passW}}/1440 * 100%);
  position: absolute;
- top: calc({{passY}}px - 15px);
- left: {{passX}}px;
- height:{{passH}}px;
+ top: calc({{passY}}/823 * 100%);
+ left: calc({{passX}}/1440 * 100%);
+ height:calc({{passH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;
  }
   /* Month */
  .box3{
- width:{{monthW}}px;
+ width:calc({{monthW}}/1440 * 100%);
  position: absolute;
- top: calc({{monthY}}px - 15px);
- left: {{monthX}}px;
- height:{{monthH}}px;
+ top: calc({{monthY}}/823 * 100%);
+ left: calc({{monthX}}/1440 * 100%);
+ height: calc({{monthH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;
  }
    /* Day */
  .box4{
- width:{{dayW}}px;
+ width: calc({{dayW}}/1440 * 100%);
  position: absolute;
- top: calc({{dayY}}px - 15px);
- left: {{dayX}}px;
- height:{{dayH}}px;
+ top: calc({{dayY}}/823 * 100%);
+ left: calc({{dayX}}/1440 * 100%);
+ height: calc({{dayH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;
  }
  /* Year */
   .box5{
- width:{{yearW}}px;
+ width: calc({{yearW}}/1440 * 100%);
  position: absolute;
- top: calc({{yearY}}px - 15px);
- left: {{yearX}}px;
- height:{{yearH}}px;
+ top: calc({{yearY}}/823 * 100%);
+ left: calc({{yearX}}/1440 * 100%);
+ height: calc({{yearH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;
  }
  /* Continue */
    .box6{
- width:{{contW}}px;
+ width: calc({{contW}}/1440 * 100%);
  position: absolute;
- top: calc({{contY}}px - 15px);
- left: {{contX}}px;
- height:{{contH}}px;
+ top: calc({{contY}}/823 * 100%);
+ left: calc({{contX}}/1440 * 100%);
+ height: calc({{contH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;
  }

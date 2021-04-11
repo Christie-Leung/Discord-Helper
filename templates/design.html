@@ -5,8 +5,8 @@
 </head>
 <body>
     <div class="box" data-tooltip="{{TEXT}}"> </div>
-    <div class="box1" data-tooltip="Click to open discord in browser"> </div>
-    <div class="box2" data-tooltip="Press to login"> </div>
+    <div class="box1" data-tooltip="{{BROWTEXT}}"> </div>
+    <div class="box2" data-tooltip="{{LOGINTEXT}}"> </div>
     <div class ="text" data-tooltip="Press to login">
         <p style="font-family:helvetica" style="font-size:11px">Press <a target = "_blank" href="https://discord.com" >here</a> to open the Discord Website. On the Discord website click on login, as shown on this website with the red arrow pointing to the button. <br>Once you have successfully opened the login page in Discord, press the white arrow on this webpage on the right</p>
     </div>
@@ -99,40 +99,45 @@
   100% { opacity:0; transform: translateX(+20px); }
 }
 
-body {
-    background-image: url({{ url_for('static', filename='images/home.png')}});
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+html {
+    background-image: url({{ url_for('static', filename='images/home1.png')}});
+    background-size:cover;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+
 }
 /* open in browser */
  .box1{
- width:{{browW}}px;
+ width:calc({{browW}}/1440 * 100%);
  position: absolute;
- top: {{browY}}px;
- left: {{browX}}px;
- height:{{browH}}px;
+ top: calc({{browY}}/823 * 100%);
+ left: calc({{browX}}/1440 * 100%);
+ height:calc({{browH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;
  }
  /* login */
   .box2{
- width:{{logW}}px;
+ width: calc({{logW}}/1440 * 100%);
  position: absolute;
- top: {{logY}}px;
- left: {{logX}}px;
- height:{{logH}}px;
+ top: calc({{logY}}/823 * 100%);
+ left: calc({{logX}}/1440 * 100%);
+ height: calc({{logH}}/823 *100%);
  background: transparent;
  outline: 5px solid red;
  }
 /* download for mac */
  .box{
- width:{{downW}}px;
+ width: calc({{downW}}/1440 * 100%);
  position: absolute;
- top: {{downY}}px;
- left: {{downX}}px;
- height:{{downH}}px;
+ top: calc({{downY}}/823 * 100%);
+ left: calc({{downX}}/1440 * 100%);
+ height: calc({{downH}}/823 * 100%);
  background: transparent;
  outline: 5px solid red;
  }
