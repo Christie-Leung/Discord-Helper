@@ -32,6 +32,10 @@ When running the main.py file, it will prompt you to input an executable path. T
 
 ![path](images/path.png)
 
+After entering the executable path, it will prompt a link. Please copy and paste the link into google chrome. 
+
+![link](images/link.png)
+
 # Discord Bot (Java)
 The discord bot provides guides on internal discord functions through commands. It gets its data from the Rest API which stores all the images and instructions in a MySQL database. 
 
