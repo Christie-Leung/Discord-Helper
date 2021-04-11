@@ -26,6 +26,10 @@ The following is needed in order to run this application:
 # Web Application (Python)
 The web application uses selenium, numpy and flask to build a website along with chromedriver. It scrapes the data from the original discord website (https://discord.com/).
 
+When running the main.py file, it will prompt you to input an executable path. This executable path is from the chromedriver that you would have had downloaded. Input the path to your chromedriver here.
+
+![path](images/path.png)
+
 # Discord Bot (Java)
 The discord bot provides guides on internal discord functions through commands. It gets its data from the Rest API which stores all the images and instructions in a MySQL database. 
 
