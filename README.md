@@ -32,7 +32,7 @@ When running the main.py file, it will prompt you to input an executable path. T
 
 ![path](images/path.png)
 
-After entering the executable path, it will prompt a link. Please copy and paste the link into google chrome. 
+After entering the executable path, it will prompt a link. Please copy and paste the link into google chrome to run the application. 
 
 ![link](images/link.png)
 
