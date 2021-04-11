@@ -24,7 +24,7 @@ The following is needed in order to run this application:
 2. Then, the user will be prompted to **join a discord server** which holds the bot application that provides available guides for internal discord features.
 
 # Web Application (Python)
-The web application uses selenium, numpy and flask to build a website along with chromedriver. It scrapes the data from the original discord website (https://discord.com/).
+The web application uses selenium, numpy and flask to build a website along with chromedriver. It scrapes the data from the original discord website (https://discord.com/). This application runs best on macOS. 
 
 Before running the program, ensure that the database has already been set up and is functional.
 
