@@ -11,6 +11,7 @@ The following is needed in order to run this application:
     - Selenium
     - NumPy
     - flask
+    - requests
 - Chrome & chromedriver (please ensure that the version matches on both ends)
     - chromedriver download link: https://chromedriver.chromium.org/downloads
 - Java  11
