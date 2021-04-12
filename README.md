@@ -30,7 +30,7 @@ Before running the program, ensure that the database has already been set up and
 
 When running the main.py file, it will prompt you to input an executable path. This executable path is from the chromedriver that you would have had downloaded. Input the path to your chromedriver here.
 
-![path](images/path.png)
+![ExecutablePath](images/executablePath.png)
 
 After entering the executable path, it will prompt a link. Please copy and paste the link into google chrome to run the application. 
 
