@@ -28,7 +28,7 @@ The web application uses selenium, numpy and flask to build a website along with
 
 Before running the program, ensure that the database has already been set up and is functional.
 
-When running the main.py file, it will prompt you to input an executable path. This executable path is from the chromedriver that you would have had downloaded. Input the path to your chromedriver here.
+When running the main.py file, you must change the PATH variable to the executable path to your chromedriver that you have had downloaded. 
 
 ![ExecutablePath](images/executablePath.png)
 
