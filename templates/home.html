@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<div class ="button" onclick="return popitup('{{ url_for('start') }}', {{winX}}, {{winY}})">
+    <p style="font-family:helvetica" style="font-size:11px"><b>START GUIDED TUTORIAL</b></p>
+</div>
+
+
+
+<div class ="button2" onclick="return popitup('{{ url_for('returningLogin') }}', 1440, 823)">
+    <p style="font-family:helvetica" style="font-size:11px"><b>JOIN SERVER</b></p>
+</div>
+
+
+    <div class ="text">
+        <p style="font-family:helvetica" style="font-size:11px"> <b>DON'T HAVE AN ACCOUNT YET? START HERE:</b></p>
+    </div>
+    <div class ="text1">
+        <p style="font-family:helvetica" style="font-size:9px"> <b>HAVE AN ACCOUNT BUT WANT TO <br>LEARN MORE ON HOW TO USE DISCORD?<br>START HERE TO JOIN OUR SERVER</b></p>
+    </div>
+</body>
+<style>
+    body{
+        background-image: url({{ url_for('static', filename='images/background.jpg') }});
+        height: 100vh;
+        background-size: cover;
+        background-position;
+
+        }
+    .button{
+        border-radius: .3rem;
+        text-align: center;
+        position: absolute;
+        top: 80%;
+        left:24%;
+        background-color: white;
+        border-radius: 10px;
+        width: max-content;
+        height: 50px;
+        padding: .7rem;
+        color: #333;
+
+    }
+    .button2{
+        border-radius: .3rem;
+        text-align: center;
+        position: absolute;
+        top: 80%;
+        left:68%;
+        background-color: white;
+        border-radius: 10px;
+        width: max-content;
+        height: 50px;
+        padding: .7rem;
+        color: #333;
+
+    }
+    .button2:hover,
+    .button:hover {
+      background-color: #333;
+      color: white;
+    }
+    .text{
+        border-radius: .3rem;
+        text-align: center;
+        position: absolute;
+        top: 70%;
+        left:18%;
+        background-color: transparent;
+        border-radius: 20px;
+        height: 50px;
+        color: white;
+        padding: .7rem;
+        width: max-content;
+    }
+    .text1{
+        border-radius: .3rem;
+        text-align: center;
+        position: absolute;
+        top: 65%;
+        left:60%;
+        background-color: transparent;
+        border-radius: 20px;
+        height: 10%;
+        width: 10%;
+        color: white;
+        padding: .7rem;
+        width: max-content;
+    }
+
+
+</style>
+
+<script language="javascript" type="text/javascript">
+
+
+function popitup(url, winX, winY) {
+    var X = String(winX + "px")
+    var Y = String(winY + "px")
+
+    newwindow=window.open(url,'help','height=X,width=Y');
+    newwindow.resizeTo(winX, winY);
+    newwindow.focus();
+
+}
+
+
+</script>
+</html>

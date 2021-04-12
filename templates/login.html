@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home page</title>
+</head>
+<body>
+    <div class="box" data-tooltip="{{USERTEXT}}"> </div>
+    <div class="box1" data-tooltip="If you already have an account, type in your password here"> </div>
+    <div class="box2" data-tooltip="If you have forgotten your password, click here to learn how to reset your password"> </div>
+    <div class="box3" data-tooltip="{{LOGINTEXT}}"> </div>
+    <div class="box4" data-tooltip="Click Here to begin registering for an account if you currently do not have one or want to create a new account"> </div>
+    <div class="box5" data-tooltip="Download the Discord Mobile app on a mobile device and scan this QR code to login."> </div>
+     <div class ="text">
+        <p style="font-family:helvetica" style="font-size:11px"> Press the blue word "register" <br> as shown by the red arrow <br> on the discord website. This should <br> redirect you to a new page for <br> you to register. Once you<br> have successfully opened the register page <br> or want to preview the page,<br>press the white arrow <br>on the right</p>
+    </div>
+    <a href="{{ url_for('start') }}">
+        <div class="back"></div>
+    </a>
+
+    <a href="{{ url_for('register') }}">
+        <div class="next"></div>
+    </a>
+
+    <div id="arrowAnim">
+        <div class="arrowSliding">
+        <div class="arrow"></div>
+    </div>
+
+
+</body>
+<style>
+.next {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-225deg);
+  position: absolute;
+  top: 30%;
+  left: 90%;
+
+}
+.back {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 30%;
+  left: 5%;
+
+}
+.back:hover,
+.next:hover {
+  border-color: red transparent transparent red;
+}
+
+
+.text{
+    border-radius: .3rem;
+    text-align: center;
+    position: absolute;
+    top: 450px;
+    left: 20px;
+    background-color: white;
+    border-radius: 20px;
+    height: 50px;
+    color: #333;
+    padding: .7rem;
+    width: max-content;
+    height: max-content;
+    }
+#arrowAnim {
+  position:absolute;
+  top: 552px;
+  left:320px;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+  border: 10px solid;
+  border-color: red transparent transparent red;
+  transform: rotate(-225deg);
+}
+
+.arrowSliding {
+  position: absolute;
+  -webkit-animation: slide 2s linear infinite;
+}
+
+
+
+@-webkit-keyframes slide {
+    0% { opacity:0; transform: translateX(-108px); }
+   20% { opacity:1; transform: translateX(-95px); }
+   80% { opacity:1; transform: translateX(+95px); }
+  100% { opacity:0; transform: translateX(+108px); }
+}
+
+html{
+    background-image: url({{ url_for('static', filename='images/login1.png')}});
+    background-size:cover;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+/* Username */
+ .box{
+ width:calc({{userW}}/1440 * 100%);
+ position: absolute;
+ top: calc({{userY}}/831 * 100%);
+ left: calc({{userX}}/1440 * 100%);
+ height:calc({{userH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+/* Password */
+ .box1{
+ width: calc({{passW}}/1440 * 100%);
+ position: absolute;
+ top: calc({{passY}}/823 *100%);
+ left: calc({{passX}}/1440 * 100%);
+ height: calc({{passH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+ /* Forgot Password */
+  .box2{
+ width:calc({{forgotW}}/1440 * 100%);
+ position: absolute;
+ top:calc({{forgotY}}/823 * 100%);
+ left:calc({{forgotX}}/1440 * 100%);
+ height:calc({{forgotH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+  /* Login */
+ .box3{
+ width:calc({{loginW}}/1440 * 100%);
+ position: absolute;
+ top:calc({{loginY}}/810 * 100%);
+ left: calc({{loginX}}/1440 * 100%);
+ height: calc({{loginH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+   /* Register */
+ .box4{
+ width:calc({{regW}}/1440 * 100%);
+ position: absolute;
+ top:calc({{regY}}/810 * 100%);
+ left: calc({{regX}}/1440 * 100%);
+ height: calc({{regH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+ /*QR*/
+  .box5{
+ width: calc({{QRW}}/1440 * 100%);
+ position: absolute;
+ top: calc({{QRY}}/823 * 100%);
+ left: calc({{QRX}}/1440 * 100%);
+ height:calc({{QRH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+.box5::before,
+.box5::after,
+.box4::before,
+.box4::after,
+.box3::before,
+.box3::after,
+.box2::before,
+.box2::after,
+.box1::before,
+.box1::after,
+.box::before,
+.box::after {
+  --scale: 0;
+  --arrow-size: 20px;
+  --tooltip-color: #333;
+
+  position: absolute;
+  top: -.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+}
+.box5::before,
+.box4::before,
+.box3::before,
+.box2::before,
+.box1::before,
+.box::before {
+  --translate-y: calc(-100% - var(--arrow-size));
+
+  content: attr(data-tooltip);
+  color: white;
+  padding: .5rem;
+  border-radius: .3rem;
+  text-align: center;
+  width: max-content;
+  max-width: 100%;
+  background: var(--tooltip-color);
+}
+.box5:hover::before,
+.box5:hover::after,
+.box4:hover::before,
+.box4:hover::after,
+.box3:hover::before,
+.box3:hover::after,
+.box2:hover::before,
+.box2:hover::after,
+.box1:hover::before,
+.box1:hover::after,
+.box:hover::before,
+.box:hover::after {
+  --scale: 1;
+}
+.box5::after,
+.box4::after,
+.box3::after,
+.box2::after,
+.box1::after,
+.box::after {
+  --translate-y: calc(-1 * var(--arrow-size));
+
+  content: '';
+  border: var(--arrow-size) solid transparent;
+  border-top-color: var(--tooltip-color);
+  transform-origin: bottom center;
+}
+
+
+
+
+</style>
+
+</html>

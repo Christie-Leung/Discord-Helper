@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home page</title>
+</head>
+<body>
+    <div class="box" data-tooltip="{{TEXT}}"> </div>
+    <div class="box1" data-tooltip="{{BROWTEXT}}"> </div>
+    <div class="box2" data-tooltip="{{LOGINTEXT}}"> </div>
+    <div class ="text" data-tooltip="Press to login">
+        <p style="font-family:helvetica" style="font-size:11px">Press <a target = "_blank" href="https://discord.com" >here</a> to open the Discord Website. On the Discord website click on login, as shown on this website with the red arrow pointing to the button. <br>Once you have successfully opened the login page in Discord, press the white arrow on this webpage on the right</p>
+    </div>
+    <a href="{{ url_for('login') }}">
+        <div class="next"></div>
+    </a>
+    <a href="{{ url_for('home') }}">
+        <div class="back"></div>
+    </a>
+
+    <div id="arrowAnim">
+  <div class="arrowSliding">
+    <div class="arrow"></div>
+  </div>
+</div>
+</body>
+<style>
+
+
+.text{
+    border-radius: .3rem;
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    left:1%;
+    background-color: white;
+    border-radius: 20px;
+    height: 50px;
+    color: #333;
+    padding: .7rem;
+    width: max-content;
+    }
+#arrowAnim {
+  position:absolute;
+  top: 2%;
+  left:85%;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+  border: 10px solid;
+  border-color: red transparent transparent red;
+  transform: rotate(-225deg);
+}
+.next {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-225deg);
+  position: absolute;
+  top: 30%;
+  left: 90%;
+
+}
+.back {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 30%;
+  left: 5%;
+
+}
+.back:hover,
+.next:hover {
+  border-color: red transparent transparent red;
+}
+
+
+.arrowSliding {
+  position: absolute;
+  -webkit-animation: slide 2s linear infinite;
+}
+
+
+
+@-webkit-keyframes slide {
+    0% { opacity:0; transform: translateX(-20px); }
+   20% { opacity:1; transform: translateX(-18px); }
+   80% { opacity:1; transform: translateX(+18px); }
+  100% { opacity:0; transform: translateX(+20px); }
+}
+
+html {
+    background-image: url({{ url_for('static', filename='images/home1.png')}});
+    background-size:cover;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+
+}
+/* open in browser */
+ .box1{
+ width:calc({{browW}}/1440 * 100%);
+ position: absolute;
+ top:calc({{browY}}/823 * 100%);
+ left: calc({{browX}}/1440 * 100%);
+ height:calc({{browH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+ /* login */
+  .box2{
+ width: calc({{logW}}/1440 * 100%);
+ position: absolute;
+ top: 0.5%;
+ left: calc({{logX}}/1440 * 100%);
+ height: calc({{logH}}/823 *100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+/* download for mac */
+ .box{
+ width: calc({{downW}}/1440 * 100%);
+ position: absolute;
+ top: calc({{downY}}/823 * 100%);
+ left: calc({{downX}}/1440 * 100%);
+ height: calc({{downH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+.box1::before,
+.box1::after,
+.box::before,
+.box::after {
+  --scale: 0;
+  --arrow-size: 20px;
+  --tooltip-color: #333;
+
+  position: absolute;
+  top: -.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+}
+.box2::before,
+.box2::after {
+  --scale: 0;
+  --arrow-size: 10px;
+  --tooltip-color: #333;
+
+  position: absolute;
+  bottom: -.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y,0)) scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+}
+.box1::before,
+.box::before {
+  --translate-y: calc(-100% - var(--arrow-size));
+
+  content: attr(data-tooltip);
+  color: white;
+  padding: .5rem;
+  border-radius: .3rem;
+  text-align: center;
+  width: max-content;
+  max-width: 100%;
+  background: var(--tooltip-color);
+}
+.box2::before,
+.box2::before {
+  --translate-y: calc(100% + var(--arrow-size));
+
+  content: attr(data-tooltip);
+  color: white;
+  padding: .5rem;
+  border-radius: .3rem;
+  text-align: center;
+  width: max-content;
+  max-width: 100%;
+  background: var(--tooltip-color);
+}
+
+.box1:hover::before,
+.box1:hover::after,
+.box:hover::before,
+.box:hover::after {
+  --scale: 1;
+}
+.box2:hover::before,
+.box2:hover::after {
+  --scale: 1;
+}
+
+.box1::after,
+.box::after {
+  --translate-y: calc(-1 * var(--arrow-size));
+
+  content: '';
+  border: var(--arrow-size) solid transparent;
+  border-top-color: var(--tooltip-color);
+  transform-origin: bottom center;
+}
+.box2::after {
+  --translate-y: calc(1 * var(--arrow-size));
+
+  content: '';
+  border: var(--arrow-size) solid transparent;
+  border-top-color: var(--tooltip-color);
+  transform-origin: bottom center;
+}
+
+
+
+</style>
+
+
+</html>

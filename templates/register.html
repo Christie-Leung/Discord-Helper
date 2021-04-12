@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home page</title>
+</head>
+<body>
+    <div class="box" data-tooltip="{{EMAILTEXT}}"> </div>
+    <div class="box1" data-tooltip="{{USERTEXT}}"> </div>
+    <div class="box2" data-tooltip="{{PASSTEXT}}"> </div>
+    <div class="box3" data-tooltip="Click and Select your month of birth using the dropdown bar"> </div>
+    <div class="box4" data-tooltip="Click and Select your day of birth using the dropdown bar"> </div>
+    <div class="box5" data-tooltip="Click and Select your birth year using the dropdown bar"> </div>
+    <div class="box6" data-tooltip="{{CONTINUETEXT}}"> </div>
+    <div class ="text">
+        <p style="font-family:helvetica" style="font-size:11px">Hover over the areas highlighted by the red box and arrows to see the instructions on how to fill out each of the areas needed for registration. Follow along with the instructions shown. <br> Once you have filled out the form press "continue", a new page should have opened. Press the white arrow on the right to proceed with the tutorial.</p>
+    </div>
+    <a href="{{ url_for('join') }}">
+        <div class="next"></div>
+    </a>
+    <a href="{{ url_for('login') }}">
+        <div class="back"></div>
+    </a>
+    <div id="arrowAnim">
+        <div class="arrowSliding">
+        <div class="arrow"></div>
+    </div>
+    <div id="arrowAnim1">
+        <div class="arrowSliding1">
+        <div class="arrow1"></div>
+    </div>
+     <div id="arrowAnim2">
+        <div class="arrowSliding2">
+        <div class="arrow2"></div>
+    </div>
+     <div id="arrowAnim3">
+        <div class="arrowSliding3">
+        <div class="arrow3"></div>
+    </div>
+      <div id="arrowAnim4">
+        <div class="arrowSliding3">
+        <div class="arrow3"></div>
+    </div>
+
+
+
+
+    <!--<h1>Home Page</h1> -->
+    <!-- <p>Hello!</p> -->
+    <!-- <iframe src="http://www.discord.com" width = "100%" height = "560px"></iframe> -->
+</body>
+<style>
+.next {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-225deg);
+  position: absolute;
+  top: 30%;
+  left: 90%;
+
+}
+.back {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 30%;
+  left: 5%;
+
+}
+.back:hover,
+.next:hover {
+  border-color: red transparent transparent red;
+}
+.text{
+    border-radius: .3rem;
+    text-align: center;
+    position: absolute;
+    top: 21px;
+    left:20px;
+    background-color: white;
+    border-radius: 20px;
+    height: 50px;
+    color: #333;
+    padding: .7rem;
+    width: max-content;
+}
+#arrowAnim {
+  position:absolute;
+  top: calc({{emailY}}/823 * 100%);
+  left:calc({{emailX}}/1440 * 100%);
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#arrowAnim1 {
+  position:absolute;
+  top: 90px;
+  left:0px;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#arrowAnim2 {
+  position:absolute;
+  top: 85px;
+  left:0px;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#arrowAnim3 {
+  position:absolute;
+  top: 75px;
+  left:0px;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#arrowAnim4 {
+  position:absolute;
+  top: 80px;
+  left:0px;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrow4,
+.arrow3,
+.arrow2,
+.arrow1,
+.arrow {
+  width: 10px;
+  height: 10px;
+  border: 10px solid;
+  border-color: red transparent transparent red;
+  transform: rotate(-225deg);
+}
+.arrowSliding4,
+.arrowSliding3,
+.arrowSliding2,
+.arrowSliding1,
+.arrowSliding {
+  position: absolute;
+  -webkit-animation: slide 2s linear infinite;
+}
+
+
+
+@-webkit-keyframes slide {
+    0% { opacity:0; transform: translateX(-108px); }
+   20% { opacity:1; transform: translateX(-95px); }
+   80% { opacity:1; transform: translateX(+95px); }
+  100% { opacity:0; transform: translateX(+108px); }
+}
+
+
+
+html {
+    background-image: url({{ url_for('static', filename='images/register1.png')}});
+    background-size:cover;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+/* Email */
+ .box{
+ width:calc({{emailW}}/1440 * 100%);
+ position: absolute;
+ top:calc({{emailY}}/840 * 100%);
+ left: calc({{emailX}}/1440 * 100%);
+ height: calc({{emailH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;;
+ }
+/* Username */
+ .box1{
+ width: calc({{userW}}/1440 * 100%);
+ position: absolute;
+ top: calc({{userY}}/823 * 100%);
+ left: calc({{userX}}/1440 * 100%);
+ height: calc({{userH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+ /* Password */
+  .box2{
+ width: calc({{passW}}/1440 * 100%);
+ position: absolute;
+ top: calc({{passY}}/823 * 100%);
+ left: calc({{passX}}/1440 * 100%);
+ height:calc({{passH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+  /* Month */
+ .box3{
+ width:calc({{monthW}}/1440 * 100%);
+ position: absolute;
+ top: calc({{monthY}}/823 * 100%);
+ left: calc({{monthX}}/1440 * 100%);
+ height: calc({{monthH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+   /* Day */
+ .box4{
+ width: calc({{dayW}}/1440 * 100%);
+ position: absolute;
+ top: calc({{dayY}}/823 * 100%);
+ left: calc({{dayX}}/1440 * 100%);
+ height: calc({{dayH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+ /* Year */
+  .box5{
+ width: calc({{yearW}}/1440 * 100%);
+ position: absolute;
+ top: calc({{yearY}}/823 * 100%);
+ left: calc({{yearX}}/1440 * 100%);
+ height: calc({{yearH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+ /* Continue */
+   .box6{
+ width: calc({{contW}}/1440 * 100%);
+ position: absolute;
+ top: calc({{contY}}/810 * 100%);
+ left: calc({{contX}}/1440 * 100%);
+ height: calc({{contH}}/823 * 100%);
+ background: transparent;
+ outline: 5px solid red;
+ }
+.box6::before,
+.box6::after,
+.box5::before,
+.box5::after,
+.box4::before,
+.box4::after,
+.box3::before,
+.box3::after,
+.box2::before,
+.box2::after,
+.box1::before,
+.box1::after,
+.box::before,
+.box::after {
+  --scale: 0;
+  --arrow-size: 20px;
+  --tooltip-color: #333;
+
+  position: absolute;
+  top: -.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+}
+.box6::before,
+.box5::before,
+.box4::before,
+.box3::before,
+.box2::before,
+.box1::before,
+.box::before {
+  --translate-y: calc(-100% - var(--arrow-size));
+
+  content: attr(data-tooltip);
+  color: #333;
+  padding: .5rem;
+  border-radius: .3rem;
+  text-align: center;
+  width: max-content;
+  max-width: 100%;
+  background: white;
+}
+.box6:hover::before,
+.box6:hover::after,
+.box5:hover::before,
+.box5:hover::after,
+.box4:hover::before,
+.box4:hover::after,
+.box3:hover::before,
+.box3:hover::after,
+.box2:hover::before,
+.box2:hover::after,
+.box1:hover::before,
+.box1:hover::after,
+.box:hover::before,
+.box:hover::after {
+  --scale: 1;
+}
+.box6::after,
+.box5::after,
+.box4::after,
+.box3::after,
+.box2::after,
+.box1::after,
+.box::after {
+  --translate-y: calc(-1 * var(--arrow-size));
+
+  content: '';
+  border: var(--arrow-size) solid transparent;
+  border-top-color: white;
+  transform-origin: bottom center;
+}
+
+
+
+
+</style>
+
+</html>

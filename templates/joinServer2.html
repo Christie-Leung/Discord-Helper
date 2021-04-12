@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class ="text">
+        <p style="font-family:helvetica" style="font-size:11px">Click on "Join a server" as indicated by the red arrow. Once a new pop up has opened, press the white arrow on the right.</p>
+    </div>
+
+    <a href="{{ url_for('link') }}">
+        <div class="next"></div>
+    </a>
+    <a href="{{ url_for('discord') }}">
+        <div class="back"></div>
+    </a>
+    <div id="arrowAnim">
+        <div class="arrowSliding">
+        <div class="arrow"></div>
+    </div>
+
+</body>
+<style>
+
+html{
+    background-image: url({{ url_for('static', filename='images/popupjoin.png')}});
+    background-size:cover;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+    }
+.next {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-225deg);
+  position: absolute;
+  top: 30%;
+  left: 90%;
+
+}
+.back {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 30%;
+  left: 5%;
+
+}
+.back:hover,
+.next:hover {
+  border-color: red transparent transparent red;
+}
+#arrowAnim {
+  position:absolute;
+  top: 83%;
+  left:39%;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+  border: 10px solid;
+  border-color: red transparent transparent red;
+  transform: rotate(-225deg);
+}
+
+.arrowSliding {
+  position: absolute;
+  -webkit-animation: slide 2s linear infinite;
+}
+
+
+
+@-webkit-keyframes slide {
+    0% { opacity:0; transform: translateX(-20px); }
+   20% { opacity:1; transform: translateX(-18px); }
+   80% { opacity:1; transform: translateX(+18px); }
+  100% { opacity:0; transform: translateX(+20px); }
+}
+.text{
+border-radius: .3rem;
+text-align: center;
+position: absolute;
+top: 20px;
+left:170px;
+background-color: white;
+border-radius: 20px;
+height: 50px;
+color: #333;
+padding: .7rem;
+width: max-content;
+    }
+
+</style>
+</html>

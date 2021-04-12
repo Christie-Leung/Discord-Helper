@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home page</title>
+</head>
+<body>
+    <div class="box" data-tooltip="Copy and paste this link in the text bar to join our guided server: https://discord.gg/mNuTu6BT"> </div>
+
+   <div class ="text">
+        <p style="font-family:helvetica" style="font-size:11px"> Copy this url(https://discord.gg/mNuTu6BT)<br>and paste the url into the area outlined by the red box</p>
+    </div>
+    <div class ="text2">
+        <p style="font-family:helvetica" style="font-size:11px"> After pasting the link in the box,<br>press the join button as indicated by the red arrow.</p>
+    </div>
+    <a href="{{ url_for('discordServer') }}">
+        <div class="next"></div>
+    </a>
+     <a href="{{ url_for('joinServerOld') }}">
+        <div class="back"></div>
+    </a>
+    <div id="arrowAnim">
+        <div class="arrowSliding">
+        <div class="arrow"></div>
+    </div>
+    <div id="arrowAnim1">
+        <div class="arrowSliding1">
+        <div class="arrow1"></div>
+    </div>
+
+</body>
+<style>
+.next {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-225deg);
+  position: absolute;
+  top: 60%;
+  left: 90%;
+
+}
+.back {
+  width: 50px;
+  height: 50px;
+  border: 30px solid;
+  border-color: white transparent transparent white;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 60%;
+  left: 5%;
+
+}
+.back:hover,
+.next:hover {
+  border-color: red transparent transparent red;
+}
+.text{
+    border-radius: .3rem;
+    text-align: center;
+    position: absolute;
+    top: 310px;
+    left: 70px;
+    background-color: white;
+    border-radius: 20px;
+    height: 50px;
+    color: #333;
+    padding: .7rem;
+    width: max-content;
+    height: max-content;
+    }
+.text2{
+    border-radius: .3rem;
+    text-align: center;
+    position: absolute;
+    top: 500px;
+    left: 340px;
+    background-color: #333;
+    border-radius: 20px;
+    height: 50px;
+    color: white;
+    padding: .7rem;
+    width: max-content;
+    height: max-content;
+    }
+
+body {
+    background-image: url({{ url_for('static', filename='images/link.png')}});
+    background-size:cover;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+#arrowAnim {
+  position:absolute;
+  top: 45%;
+  left:35%;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#arrowAnim1 {
+  position:absolute;
+  top: 160px;
+  left:250px;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow1,
+.arrow {
+  width: 10px;
+  height: 10px;
+  border: 10px solid;
+  border-color: red transparent transparent red;
+  transform: rotate(-225deg);
+}
+
+.arrowSliding1,
+.arrowSliding {
+  position: absolute;
+  -webkit-animation: slide 2s linear infinite;
+}
+
+
+
+@-webkit-keyframes slide {
+    0% { opacity:0; transform: translateX(-40px); }
+   20% { opacity:1; transform: translateX(-30px); }
+   80% { opacity:1; transform: translateX(+40px); }
+  100% { opacity:0; transform: translateX(+30px); }
+}
+
+ .box{
+ width:28%;
+ position: absolute;
+ top: 44%;
+ left: 36%;
+ height:5%;
+ background: transparent;
+ outline: 5px solid red;
+ }
+
+.box::before,
+.box::after {
+  --scale: 0;
+  --arrow-size: 20px;
+  --tooltip-color: #333;
+
+  position: absolute;
+  top: -.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+}
+
+.box::before {
+  --translate-y: calc(-100% - var(--arrow-size));
+
+  content: attr(data-tooltip);
+  color: white;
+  padding: .5rem;
+  border-radius: .3rem;
+  text-align: center;
+  width: max-content;
+  max-width: 100%;
+  background: var(--tooltip-color);
+}
+
+.box:hover::before,
+.box:hover::after {
+  --scale: 1;
+}
+
+.box::after {
+  --translate-y: calc(-1 * var(--arrow-size));
+
+  content: '';
+  border: var(--arrow-size) solid transparent;
+  border-top-color: var(--tooltip-color);
+  transform-origin: bottom center;
+}
+
+
+
+
+</style>
+
+</html>
