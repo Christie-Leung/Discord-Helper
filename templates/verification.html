@@ -31,9 +31,13 @@
 
     body{
         background-image: url({{ url_for('static', filename='images/background.jpg')}});
-        height: 100vh;
-        background-size: cover;
-        background-position;
+        background-size:cover;
+        height:100%;
+        width:100%;
+        overflow:hidden;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
 
         }
 .next {
@@ -64,8 +68,8 @@
 }
 #arrowAnim {
   position:absolute;
-  top: 430px;
-  left:655px;
+  top: 54%;
+  left:48%;
   width: 10px;
   height: 10px;
   display: flex;

@@ -5,7 +5,7 @@
 </head>
 <body>
     <div class ="text">
-        <p style="font-family:helvetica" style="font-size:11px">A webpage that looks like this should have been opened,<br>press the plus button indicated by the red arrow, then press the white arrow on the right</p>
+        <p style="font-family:helvetica" style="font-size:11px">A webpage that looks like this should have been opened,<br>click the plus button indicated by the red arrow, then click the white arrow on the right</p>
     </div>
     <a href="{{ url_for('joinServerOld') }}">
         <div class="next"></div>
@@ -20,12 +20,15 @@
 
 </body>
 <style>
-
-    body{
-        background-image: url({{ url_for('static', filename='images/mainserver.png')}});
-        height: 100vh;
-        background-size: cover;
-        background-position;
+html{
+    background-image: url({{ url_for('static', filename='images/mainserver.png')}});
+    background-size:cover;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 
         }
 .next {

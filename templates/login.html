@@ -9,9 +9,9 @@
     <div class="box2" data-tooltip="If you have forgotten your password, click here to learn how to reset your password"> </div>
     <div class="box3" data-tooltip="{{LOGINTEXT}}"> </div>
     <div class="box4" data-tooltip="Click Here to begin registering for an account if you currently do not have one or want to create a new account"> </div>
-    <div class="box5" data-tooltip="Download the Discord Mobile app on a mobile device and scan this QR code to login. To see more instructions click here"> </div>
+    <div class="box5" data-tooltip="Download the Discord Mobile app on a mobile device and scan this QR code to login."> </div>
      <div class ="text">
-        <p style="font-family:helvetica" style="font-size:11px"> Press the blue word "register" <br> as shown by the red arrow <br> on the discord website. This should <br> redirect you to a new page for <br> you to register. Once you<br> have successfully opened the register page <br> or want to preview the page<br>, press the white arrow <br>on the right</p>
+        <p style="font-family:helvetica" style="font-size:11px"> Press the blue word "register" <br> as shown by the red arrow <br> on the discord website. This should <br> redirect you to a new page for <br> you to register. Once you<br> have successfully opened the register page <br> or want to preview the page,<br>press the white arrow <br>on the right</p>
     </div>
     <a href="{{ url_for('start') }}">
         <div class="back"></div>
@@ -27,12 +27,6 @@
     </div>
 
 
-
-
-
-    <!--<h1>Home Page</h1> -->
-    <!-- <p>Hello!</p> -->
-    <!-- <iframe src="http://www.discord.com" width = "100%" height = "560px"></iframe> -->
 </body>
 <style>
 .next {
@@ -124,7 +118,7 @@ html{
  .box{
  width:calc({{userW}}/1440 * 100%);
  position: absolute;
- top: calc({{userY}}/823 * 100%);
+ top: calc({{userY}}/831 * 100%);
  left: calc({{userX}}/1440 * 100%);
  height:calc({{userH}}/823 * 100%);
  background: transparent;
@@ -154,7 +148,7 @@ html{
  .box3{
  width:calc({{loginW}}/1440 * 100%);
  position: absolute;
- top:calc({{loginY}}/823 * 100%);
+ top:calc({{loginY}}/810 * 100%);
  left: calc({{loginX}}/1440 * 100%);
  height: calc({{loginH}}/823 * 100%);
  background: transparent;
@@ -164,7 +158,7 @@ html{
  .box4{
  width:calc({{regW}}/1440 * 100%);
  position: absolute;
- top:calc({{regY}}/823 * 100%);
+ top:calc({{regY}}/810 * 100%);
  left: calc({{regX}}/1440 * 100%);
  height: calc({{regH}}/823 * 100%);
  background: transparent;

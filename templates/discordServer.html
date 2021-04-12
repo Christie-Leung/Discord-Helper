@@ -18,13 +18,17 @@
 </body>
 <style>
 
-    body{
-        background-image: url({{ url_for('static', filename='images/discord.png')}});
-        height: 100vh;
-        background-size: cover;
-        background-position;
+html{
+    background-image: url({{ url_for('static', filename='images/discord.png')}});
+    background-size:cover;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 
-        }
+    }
 
 
 .text{

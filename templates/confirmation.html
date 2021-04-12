@@ -46,11 +46,15 @@
 .next:hover {
   border-color: red transparent transparent red;
 }
-body{
+html{
     background-image: url({{ url_for('static', filename='images/confirm.png')}});
-    height: 100vh;
-    background-size: cover;
-    background-position;
+    background-size:cover;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 
     }
 

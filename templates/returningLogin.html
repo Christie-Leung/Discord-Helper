@@ -6,12 +6,12 @@
 <body>
     <div class="box" data-tooltip="If you already have an account, type in your username here"> </div>
     <div class="box1" data-tooltip="If you already have an account, type in your password here"> </div>
-    <div class="box2" data-tooltip="If you have forgotten your password, Click here and follow this link to find a detailed guide on how to reset your password"> </div>
+    <div class="box2" data-tooltip="If you have forgotten your password, click here and follow this link to find a detailed guide on how to reset your password"> </div>
     <div class="box3" data-tooltip="Click Here to Login"> </div>
     <div class="box4" data-tooltip="Click Here to begin registering for an account if you currently do not have one or want to create a new account"> </div>
     <div class="box5" data-tooltip="Download the Discord Mobile app on a mobile device and scan this QR code to login. To see more instructions click here"> </div>
     <div class ="text">
-        <p style="font-family:helvetica" style="font-size:11px">Press <a target = "_blank" href="https://discord.com" target="_blank">here</a> to open the Discord Website. On the Discord website, hover over the areas highlighted by the red box and arrows to see the instructions on how to fill out each of the areas <br> needed to login. Follow along with the instructions shown. Once you have filled out the form and pressed Login and discord has opened, press the white arrow on the right</p>
+        <p style="font-family:helvetica" style="font-size:11px">Press <a target = "_blank" href="https://discord.com/login" target="_blank">here</a> to open the Discord Website. On the Discord website, hover over the areas highlighted by the red box and arrows to see the instructions on how to fill out each of the areas <br> needed to login. Follow along with the instructions shown. Once you have filled out the form and pressed Login and discord has opened, press the white arrow on the right</p>
     </div>
     <a href="{{ url_for('discord') }}">
         <div class="next"></div>
@@ -79,8 +79,8 @@
 }
 #arrowAnim {
   position:absolute;
-  top: 340px;
-  left:300px;
+  top: 44%;
+  left:18%;
   width: 10px;
   height: 10px;
   display: flex;
@@ -137,70 +137,73 @@
 
 
 
-body {
+html {
     background-image: url({{ url_for('static', filename='images/login.png')}});
     background-size:cover;
+    height:100%;
+    width:100%;
+    overflow:hidden;
     background-repeat: no-repeat;
-    height: 100vh;
-    width: 100%;
-    position:fixed;
-    margin: 0 auto;
+    background-position: center;
+    background-attachment: fixed;
 }
+/* Email */
 .box{
- width:412px;
+ width: 29%;
  position: absolute;
- top: calc(330 * 1px);
- left: calc(361 * 1px);
- height:41px;
+ top: 42%;
+ left: 25%;
+ height:5%;
  background: transparent;
  outline: 5px solid red;
  }
 /* Password */
  .box1{
- width:414px;
+ width:29%;
  position: absolute;
- top: calc( 415* 1px);
- left: calc(360 * 1px);
- height:41px;
+ top: 53%;
+ left: 25%;
+ height: 5%;
  background: transparent;
  outline: 5px solid red;
  }
  /* Forgot Password */
   .box2{
- width:136px;
+ width:9%;
  position: absolute;
- top: calc(462 * 1px);
- left: calc(362 * 1px);
- height:17px;
+ top: 59%;
+ left: 25%;
+ height:2.5%;
  background: transparent;
  outline: 5px solid red;
  }
   /* Login */
  .box3{
- width:414px;
+ width:29%;
  position: absolute;
- top: calc(500 * 1px);
- left: calc(360 * 1px);
- height:45px;
+ top: 64%;
+ left: 25%;
+ height:5%;
  background: transparent;
  outline: 5px solid red;
  }
    /* Register */
  .box4{
- width:414px;
+ width:29%;
  position: absolute;
- top: calc(552 * 1px);
- left: calc(360 * 1px);
- height:19px;
+ top: 70%;
+ left: 25%;
+ height:2%;
  background: transparent;
  outline: 5px solid red;
  }
+ /* QR */
   .box5{
- width:240px;
+ width:17%;
  position: absolute;
- top: calc(229 * 1px);
- left: calc(840 * 1px);
- height:345px;
+ top: 30%;
+ left: 58%;
+ height: 40%;
  background: transparent;
  outline: 5px solid red;
  }

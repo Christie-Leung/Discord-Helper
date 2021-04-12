@@ -12,7 +12,7 @@
     <div class="box5" data-tooltip="Click and Select your birth year using the dropdown bar"> </div>
     <div class="box6" data-tooltip="{{CONTINUETEXT}}"> </div>
     <div class ="text">
-        <p style="font-family:helvetica" style="font-size:11px">Hover over the areas highlighted by the red box and arrows to see the instructions on how to fill out each of the areas needed for registration. Follow along with the instructions shown. <br> Once you have filled out the form and pressed continue and a new page has opened, press the white arrow on the right</p>
+        <p style="font-family:helvetica" style="font-size:11px">Hover over the areas highlighted by the red box and arrows to see the instructions on how to fill out each of the areas needed for registration. Follow along with the instructions shown. <br> Once you have filled out the form press "continue", a new page should have opened. Press the white arrow on the right to proceed with the tutorial.</p>
     </div>
     <a href="{{ url_for('join') }}">
         <div class="next"></div>
@@ -183,7 +183,7 @@ html {
  .box{
  width:calc({{emailW}}/1440 * 100%);
  position: absolute;
- top:calc({{emailY}}/823 * 100%);
+ top:calc({{emailY}}/840 * 100%);
  left: calc({{emailX}}/1440 * 100%);
  height: calc({{emailH}}/823 * 100%);
  background: transparent;
@@ -243,7 +243,7 @@ html {
    .box6{
  width: calc({{contW}}/1440 * 100%);
  position: absolute;
- top: calc({{contY}}/823 * 100%);
+ top: calc({{contY}}/810 * 100%);
  left: calc({{contX}}/1440 * 100%);
  height: calc({{contH}}/823 * 100%);
  background: transparent;
