@@ -5,18 +5,19 @@ import numpy
 import requests
 
 
-# download selenium and chrome driver
-
 class Objects:
     def __init__(self):
         self.X = None
         self.Y = None
 
+    # ---- ACCESSOR METHODS --- #
     def getX(self):
         return self.X
 
     def getY(self):
         return self.Y
+
+    # --- MODIFIER METHODS --- #
 
     def setXY(self,list):
         for i in list:
@@ -34,12 +35,10 @@ class Button(Objects):
         self.H = None
         self.TEXT = None
 
+    # ---- ACCESSOR METHODS --- #
 
     def getLabel(self):
         return self.LABEL
-
-    def setLabel(self,label):
-        self.LABEL = label
 
     def getText(self):
         return self.TEXT
@@ -49,6 +48,11 @@ class Button(Objects):
 
     def getH(self):
         return self.H
+
+    # --- MODIFIER METHODS --- #
+
+    def setLabel(self,label):
+        self.LABEL = label
 
 
     def setDimensions(self,list):
@@ -73,8 +77,12 @@ class WebScraper():
         self.URL = URL
         self.DRIVER = None
 
+    # --- MODIFIER METHODS --- #
+
     def setDriver(self, DRIVER):
         self.DRIVER = DRIVER
+
+    # ---- ACCESSOR METHODS --- #
 
     def getDriverURL(self):
         return self.DRIVER.get(self.URL)
