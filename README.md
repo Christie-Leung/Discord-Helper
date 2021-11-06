@@ -1,7 +1,5 @@
-# CSE3910- Individual Project
-
-**Guided Social Media Application**
-by Chelsea Chen & Christie Leung
+# Guided Social Media Application
+**by Chelsea Chen & Christie Leung**
 
 # Overview
 This application consists of three parts: web-application, discord bot, and a Rest API where a MySQL Database can be assessed. 
